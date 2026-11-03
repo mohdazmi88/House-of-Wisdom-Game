@@ -1,0 +1,3243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The House of Wisdom Adventure: A Journey Through Islamic Science</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+    .fantasy-title {
+      font-family: 'Cinzel', serif;
+    }
+    .arabic-title {
+      font-family: 'Amiri', serif;
+    }
+    
+    /* Subtle Custom Scrollbar for inner boxes */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(217, 119, 6, 0.6);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(245, 158, 11, 0.9);
+    }
+
+    /* Pulse Glow Animation */
+    @keyframes goldenGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
+      50% { box-shadow: 0 0 32px rgba(245, 158, 11, 0.85); }
+    }
+    .glow-gold {
+      animation: goldenGlow 3s infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden antialiased selection:bg-amber-500 selection:text-slate-950 relative">
+
+  <!-- GLOBAL PERSISTENT SAGES OF BAGHDAD BACKGROUND (BRIGHT & VIBRANT) -->
+  <div class="fixed inset-0 z-0 bg-cover bg-center opacity-85 brightness-[0.72] filter saturate-130 contrast-110 pointer-events-none" style="background-image: url('https://i.imgur.com/hpzNGJ0.jpeg');"></div>
+  <div class="fixed inset-0 z-0 bg-gradient-to-t from-slate-950/80 via-slate-950/45 to-slate-900/40 pointer-events-none"></div>
+
+  <!-- ========================================== -->
+  <!-- 1. HERO ONBOARDING & REGISTRATION OVERLAY  -->
+  <!-- ========================================== -->
+  <div id="hero-screen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-sm overflow-y-auto">
+    <!-- Historical Atmosphere Background with High Clarity -->
+    <div class="absolute inset-0 z-0 bg-cover bg-center opacity-95 brightness-[0.65] filter saturate-125 contrast-110" style="background-image: url('https://i.imgur.com/hpzNGJ0.jpeg');"></div>
+    <div class="absolute inset-0 z-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+
+    <div class="relative z-10 max-w-lg w-full bg-slate-950/85 border-2 border-amber-400/70 rounded-2xl p-6 md:p-8 backdrop-blur-xl shadow-2xl shadow-amber-950/80 flex flex-col items-center text-center">
+      
+      <!-- Emblem -->
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 flex items-center justify-center mb-4 shadow-xl shadow-amber-500/40 border-2 border-yellow-200">
+        <i data-lucide="compass" class="w-9 h-9 text-slate-950"></i>
+      </div>
+
+      <span class="text-xs font-bold tracking-widest uppercase text-amber-300 bg-amber-950/80 border border-amber-400/60 px-3.5 py-1 rounded-full mb-2 shadow-sm">
+        ISI 1012 • Islamic Science Institute (USIM)
+      </span>
+
+      <h1 class="fantasy-title text-2xl md:text-3xl font-black text-amber-200 tracking-wide mb-1 drop-shadow-md">
+        THE HOUSE OF WISDOM
+      </h1>
+      <h2 class="arabic-title text-2xl text-amber-300 font-bold mb-3 drop-shadow">
+        بَيْتُ الْحِكْمَةِ
+      </h2>
+
+      <p class="text-xs md:text-sm text-slate-100 font-medium leading-relaxed max-w-md mb-6 drop-shadow">
+        Embark on an intellectual journey through the Tawhidic worldview, classical Islamic polymath discoveries, and futures foresight. Register your scholarly credentials to begin.
+      </p>
+
+      <!-- Student Registration Form -->
+      <div class="w-full space-y-3.5 text-left mb-6">
+        <div>
+          <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-1">
+            Student Full Name
+          </label>
+          <input type="text" id="reg-student-name" placeholder="e.g. Ahmad bin Abdullah" class="w-full bg-slate-900/90 border-2 border-slate-600 focus:border-amber-400 rounded-lg px-3.5 py-2.5 text-sm text-white font-medium focus:outline-none transition placeholder-slate-400 shadow-inner">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-1">
+              Class Section
+            </label>
+            <select id="reg-student-class" class="w-full bg-slate-900/90 border-2 border-slate-600 focus:border-amber-400 rounded-lg px-3.5 py-2.5 text-sm text-white font-medium focus:outline-none transition shadow-inner">
+              <option value="" disabled selected>Select class...</option>
+              <option value="KMB12">KMB12</option>
+              <option value="KBB">KBB</option>
+              <option value="FEM1">FEM1</option>
+              <option value="KSBKSD">KSBKSD</option>
+              <option value="KSF">KSF</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-1">
+              Matric ID
+            </label>
+            <input type="text" id="reg-student-matric" placeholder="e.g. 1220491" class="w-full bg-slate-900/90 border-2 border-slate-600 focus:border-amber-400 rounded-lg px-3.5 py-2.5 text-sm text-white font-medium focus:outline-none transition placeholder-slate-400 shadow-inner">
+          </div>
+        </div>
+      </div>
+
+      <!-- Start Trigger Button -->
+      <button onclick="startGameOnboarding()" class="w-full py-3.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-sm uppercase tracking-wider rounded-xl shadow-xl shadow-amber-500/40 flex items-center justify-center gap-2 transform active:scale-95 transition border border-yellow-200">
+        <span>Enter Baghdad Scriptorium</span>
+        <i data-lucide="arrow-right" class="w-5 h-5 text-slate-950"></i>
+      </button>
+
+      <span class="text-[11px] text-amber-200/90 font-medium mt-4">
+        All assessment performance and research survey metrics are linked with the USIM Course Database.
+      </span>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 2. TOP HEADER HUD / NAVIGATION BAR         -->
+  <!-- ========================================== -->
+  <header class="bg-slate-950/75 border-b border-amber-400/40 backdrop-blur-md px-4 py-3 flex items-center justify-between sticky top-0 z-40 shadow-lg shadow-black/30">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-amber-500/30 border border-amber-400 flex items-center justify-center text-amber-300 shadow">
+        <i data-lucide="landmark" class="w-5 h-5"></i>
+      </div>
+      <div>
+        <h1 class="fantasy-title text-base font-bold text-amber-200 leading-none drop-shadow">House of Wisdom</h1>
+        <p class="text-[11px] text-amber-300/80 font-medium mt-0.5">Islamic Science Adventure • USIM</p>
+      </div>
+    </div>
+
+    <!-- Active Scholar Badge -->
+    <div class="hidden sm:flex items-center gap-3 bg-slate-900/85 border border-amber-500/40 px-3.5 py-1.5 rounded-full text-xs shadow-md">
+      <span class="text-slate-300 font-medium">Scholar:</span>
+      <span id="hud-scholar-name" class="font-bold text-amber-300">Guest Scholar</span>
+      <span class="text-amber-500/60">|</span>
+      <span id="hud-scholar-class" class="font-mono text-amber-200 font-bold text-[11px]">KMB12</span>
+    </div>
+
+    <!-- Active Timer HUD Indicator -->
+    <div id="hud-timer-container" class="hidden sm:flex items-center gap-1.5 px-3 py-1 bg-slate-900/90 border border-amber-400/50 rounded-full font-mono text-xs shadow-inner">
+      <i data-lucide="timer" class="w-3.5 h-3.5 text-amber-400"></i>
+      <span class="text-[10px] text-slate-400 uppercase font-semibold">Time:</span>
+      <span id="hud-timer-display" class="font-bold text-yellow-300">60s</span>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-2">
+      <!-- Tier Filter Badge -->
+      <span id="hud-tier-badge" class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-lg bg-amber-500/20 border border-amber-400/60 text-amber-200 shadow-sm">
+        Apprentice
+      </span>
+
+      <!-- Finish & Survey Submission Modal Button (LOCKED UNTIL ALL 15 CHAMBERS & 7 RELICS COMPLETED) -->
+      <button id="header-finish-survey-btn" onclick="openResearchSurveyModal()" class="bg-slate-900 border border-slate-700 text-slate-500 font-bold text-xs px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 cursor-not-allowed opacity-60 transition" disabled title="Conquer all 15 chambers and forge all 7 relics to submit">
+        <i id="header-finish-survey-icon" data-lucide="lock" class="w-4 h-4 text-slate-500"></i>
+        <span id="header-finish-survey-text">Locked (0/15)</span>
+      </button>
+
+      <!-- Settings / Config Gear -->
+      <button onclick="toggleConfigModal()" class="w-8 h-8 rounded-lg bg-slate-900/80 hover:bg-slate-800 text-amber-300 flex items-center justify-center transition border border-amber-500/30 shadow" title="Settings">
+        <i data-lucide="settings" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Logout & Reset Button -->
+      <button onclick="promptLogoutReset()" class="h-8 px-2.5 rounded-lg bg-red-950/70 hover:bg-red-900/90 text-red-300 hover:text-red-100 flex items-center gap-1.5 transition border border-red-500/40 shadow text-xs font-bold" title="Logout and Reset Game">
+        <i data-lucide="log-out" class="w-3.5 h-3.5 text-red-400"></i>
+        <span class="hidden md:inline">Reset</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 3. MAIN DASHBOARD CONTENT AREA             -->
+  <!-- ========================================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-5 grid grid-cols-1 lg:grid-cols-12 gap-4 relative z-10">
+    
+    <!-- LEFT PANEL: STATS, CODEX & ARTIFACTS (lg:col-span-4) -->
+    <section class="lg:col-span-4 space-y-4">
+      
+      <!-- Scholar Metrics Card -->
+      <div class="bg-slate-950/75 border border-amber-500/40 rounded-xl p-4 shadow-xl backdrop-blur-md">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs uppercase font-bold tracking-wider text-amber-200">Knowledge Progress</span>
+          <span id="hud-score-xp" class="text-xs font-mono font-bold text-yellow-300">0 XP</span>
+        </div>
+        
+        <div class="w-full bg-slate-900/90 h-3 rounded-full overflow-hidden border border-amber-500/40 mb-2 shadow-inner">
+          <div id="hud-progress-bar" class="bg-gradient-to-r from-amber-400 to-yellow-300 h-full w-0 transition-all duration-500 shadow-md"></div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 text-center text-xs mt-3">
+          <div class="bg-slate-900/80 p-2.5 rounded-lg border border-amber-500/30 shadow-sm">
+            <span class="block text-[10px] text-slate-300 font-semibold uppercase">Mastered</span>
+            <span id="stat-rooms-count" class="font-bold text-amber-300 font-mono text-sm">0 / 15</span>
+          </div>
+          <div class="bg-slate-900/80 p-2.5 rounded-lg border border-amber-500/30 shadow-sm">
+            <span class="block text-[10px] text-slate-300 font-semibold uppercase">Correct</span>
+            <span id="stat-score-count" class="font-bold text-emerald-300 font-mono text-sm">0</span>
+          </div>
+          <div class="bg-slate-900/80 p-2.5 rounded-lg border border-amber-500/30 shadow-sm">
+            <span class="block text-[10px] text-slate-300 font-semibold uppercase">Accuracy</span>
+            <span id="stat-accuracy-rate" class="font-bold text-yellow-300 font-mono text-sm">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Level Tier Selector -->
+      <div class="bg-slate-950/75 border border-amber-500/40 rounded-xl p-3 flex gap-1.5 shadow-xl backdrop-blur-md">
+        <button onclick="setTierFilter('apprentice')" id="tier-btn-apprentice" class="flex-1 py-2 text-xs font-bold rounded-lg border border-amber-400 bg-amber-500/30 text-amber-200 shadow transition">
+          I. Apprentice
+        </button>
+        <button onclick="setTierFilter('specialist')" id="tier-btn-specialist" class="flex-1 py-2 text-xs font-bold rounded-lg border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:border-amber-400 transition">
+          II. Specialist
+        </button>
+        <button onclick="setTierFilter('master')" id="tier-btn-master" class="flex-1 py-2 text-xs font-bold rounded-lg border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:border-amber-400 transition">
+          III. Master
+        </button>
+      </div>
+
+      <!-- Sacred Artifacts Shelf -->
+      <div class="bg-slate-950/75 border border-amber-500/40 rounded-xl p-4 shadow-xl backdrop-blur-md">
+        <h3 class="fantasy-title text-xs font-bold uppercase tracking-wider text-amber-200 mb-3 flex items-center justify-between">
+          <span>Relics of Baghdad</span>
+          <span class="text-[10px] font-mono text-amber-300 font-bold" id="artifact-unlocked-count">0 / 7</span>
+        </h3>
+        <div class="grid grid-cols-2 gap-2 text-[11px]" id="artifact-grid">
+          <div id="art-astrolabe" onclick="viewUnlockedRelic('astrolabe')" class="p-2.5 rounded-lg border border-slate-700 bg-slate-900/70 flex items-center gap-2 opacity-50 transition cursor-not-allowed">
+            <i data-lucide="compass" class="w-4 h-4 text-amber-400"></i>
+            <span class="truncate font-semibold text-slate-300">Baghdad Astrolabe</span>
+          </div>
+          <div id="art-camera" onclick="viewUnlockedRelic('camera')" class="p-2.5 rounded-lg border border-slate-700 bg-slate-900/70 flex items-center gap-2 opacity-50 transition cursor-not-allowed">
+            <i data-lucide="eye" class="w-4 h-4 text-amber-400"></i>
+            <span class="truncate font-semibold text-slate-300">Camera Obscura</span>
+          </div>
+          <div id="art-clock" onclick="viewUnlockedRelic('clock')" class="p-2.5 rounded-lg border border-slate-700 bg-slate-900/70 flex items-center gap-2 opacity-50 transition cursor-not-allowed">
+            <i data-lucide="clock" class="w-4 h-4 text-amber-400"></i>
+            <span class="truncate font-semibold text-slate-300">Elephant Escapement</span>
+          </div>
+          <div id="art-alembic" onclick="viewUnlockedRelic('alembic')" class="p-2.5 rounded-lg border border-slate-700 bg-slate-900/70 flex items-center gap-2 opacity-50 transition cursor-not-allowed">
+            <i data-lucide="flask-conical" class="w-4 h-4 text-amber-400"></i>
+            <span class="truncate font-semibold text-slate-300">Jabir's Alembic</span>
+          </div>
+          <div id="art-canon" onclick="viewUnlockedRelic('canon')" class="p-2.5 rounded-lg border border-slate-700 bg-slate-900/70 flex items-center gap-2 opacity-50 transition cursor-not-allowed">
+            <i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i>
+            <span class="truncate font-semibold text-slate-300">Canon of Medicine</span>
+          </div>
+          <div id="art-algebra" onclick="viewUnlockedRelic('algebra')" class="p-2.5 rounded-lg border border-slate-700 bg-slate-900/70 flex items-center gap-2 opacity-50 transition cursor-not-allowed">
+            <i data-lucide="calculator" class="w-4 h-4 text-amber-400"></i>
+            <span class="truncate font-semibold text-slate-300">Algebra Scroll</span>
+          </div>
+          <div id="art-amanah" onclick="viewUnlockedRelic('amanah')" class="col-span-2 p-2.5 rounded-lg border border-slate-700 bg-slate-900/70 flex items-center gap-2 opacity-50 transition cursor-not-allowed">
+            <i data-lucide="shield" class="w-4 h-4 text-amber-400"></i>
+            <span class="truncate font-semibold text-slate-300">Seal of Al-Amanah & Tawhid</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT PANEL: INTERACTIVE CHAMBER / QUIZ / BOSS SCREEN (lg:col-span-8) -->
+    <section class="lg:col-span-8 bg-slate-950/80 border border-amber-500/40 rounded-xl p-4 sm:p-5 flex flex-col justify-between min-h-[560px] shadow-2xl backdrop-blur-md">
+      
+      <!-- SCREEN A: ROOMS EXPEDITION GRID -->
+      <div id="screen-rooms" class="space-y-4">
+        <div class="flex items-center justify-between border-b border-amber-500/30 pb-3">
+          <div>
+            <h2 class="fantasy-title text-base sm:text-lg font-bold text-amber-200" id="current-tier-heading">
+              Tier I: Apprentice Scholar Chambers
+            </h2>
+            <p class="text-xs text-slate-200 font-medium" id="current-tier-subtext">The Path of Wisdom is linear. You may only enter the current unlocked chamber.</p>
+          </div>
+          <button onclick="launchBossChallenge()" id="boss-challenge-btn" class="px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-400 font-bold text-xs flex items-center gap-1.5 cursor-not-allowed opacity-60 shadow" disabled>
+            <i data-lucide="swords" class="w-4 h-4 text-slate-400"></i>
+            <span id="boss-challenge-label">Locked Astrolabe Trial</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Chamber List -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="rooms-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- SCREEN B: ACTIVE QUIZ INQUIRY -->
+      <div id="screen-quiz" class="hidden flex-1 flex flex-col justify-between space-y-4">
+        <div>
+          <div class="flex items-center justify-between border-b border-amber-500/30 pb-2 mb-3">
+            <button onclick="switchScreen('rooms')" class="text-xs font-bold text-amber-300 hover:text-amber-200 flex items-center gap-1">
+              <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Map
+            </button>
+            
+            <!-- Question Timer in Quiz Bar -->
+            <div class="flex items-center gap-3">
+              <div class="flex items-center gap-1 bg-amber-950/60 border border-amber-500/50 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold text-amber-300">
+                <i data-lucide="hourglass" class="w-3.5 h-3.5 text-amber-400 animate-spin"></i>
+                <span id="quiz-timer-text">60s</span>
+              </div>
+              <span id="quiz-question-counter" class="text-xs font-mono font-bold text-amber-300">Question 1 of 3</span>
+            </div>
+          </div>
+
+          <!-- Room Title & Topic Header -->
+          <div class="mb-3">
+            <span id="quiz-room-tag" class="text-[10px] uppercase font-bold tracking-widest text-amber-200 bg-amber-950/70 border border-amber-400/50 px-2.5 py-0.5 rounded shadow-sm">
+              Epistemology
+            </span>
+            <h3 id="quiz-question-text" class="text-sm sm:text-base font-bold text-white mt-2.5 leading-relaxed drop-shadow">
+              Question text goes here?
+            </h3>
+          </div>
+
+          <!-- Options -->
+          <div id="quiz-options-container" class="space-y-2 mt-4">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Question Feedback & Next Controls -->
+        <div id="quiz-feedback-box" class="hidden p-3.5 rounded-lg border text-xs leading-relaxed font-medium shadow-md"></div>
+
+        <div class="flex items-center justify-between pt-3 border-t border-amber-500/30">
+          <span class="text-xs text-amber-200/80 font-medium">Every response is logged for your grading profile.</span>
+          <button id="quiz-next-btn" onclick="submitOrNextQuestion()" class="px-5 py-2.5 bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-xs uppercase tracking-wider rounded-lg transition flex items-center gap-1.5 shadow-lg shadow-amber-950/40">
+            <span>Check Answer</span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- SCREEN C: BOSS RIDDLES & 3D SIMULATION -->
+      <div id="screen-boss" class="hidden flex-1 flex flex-col justify-between space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div>
+            <span class="text-[10px] font-bold text-red-400 uppercase tracking-widest bg-red-950/50 border border-red-500/30 px-2 py-0.5 rounded">
+              Sacred Relic Trial
+            </span>
+            <h2 id="boss-title" class="fantasy-title text-sm font-bold text-slate-100 mt-1">
+              The Relic Riddle Trial
+            </h2>
+          </div>
+          <button onclick="switchScreen('rooms')" class="text-xs text-slate-400 hover:text-white flex items-center gap-1">
+            <i data-lucide="x" class="w-3.5 h-3.5"></i> Exit Boss
+          </button>
+        </div>
+
+        <p id="boss-prompt" class="text-xs text-slate-300 leading-relaxed bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+          Solve the historical mechanism puzzle to forge and earn this sacred Relic Badge.
+        </p>
+
+        <!-- CONTAINER FOR ALL 7 INTERACTIVE BOSS RELIC PUZZLES -->
+        <div id="boss-puzzles-wrapper" class="w-full flex flex-col items-center gap-3">
+          
+          <!-- PUZZLE 1: 3D BRASS ASTROLABE (Chamber 3) -->
+          <div id="boss-game-astrolabe" class="w-full flex-col items-center gap-3 hidden">
+            <!-- Solar Altitude Bar -->
+            <div class="w-full flex justify-between items-center px-3 py-1.5 bg-slate-950 border border-amber-500/30 rounded-lg text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-yellow-400 shadow-[0_0_10px_#facc15] animate-pulse"></span>
+                <span class="text-amber-300 font-bold uppercase tracking-wider text-[11px]">Sun's True Elevation: <strong class="text-white font-mono">52°</strong></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-slate-400 text-[11px]">Alidade Angle: <strong id="astrolabe-angle-display" class="text-amber-400 font-mono">18°</strong></span>
+                <span id="astrolabe-status-tag" class="px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-red-950 border border-red-500/40 text-red-400">UNALIGNED</span>
+              </div>
+            </div>
+
+            <!-- SVG 3D Astrolabe Viewport -->
+            <div class="relative w-full max-w-sm h-56 flex items-center justify-center select-none bg-slate-950/70 border border-slate-800 rounded-xl overflow-hidden p-2">
+              <div class="absolute right-3 top-2 pointer-events-none flex flex-col items-center z-10">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-r from-yellow-300 to-amber-500 shadow-[0_0_25px_#fde047] flex items-center justify-center animate-pulse">
+                  <i data-lucide="sun" class="w-5 h-5 text-slate-950"></i>
+                </div>
+                <span class="text-[8px] font-bold text-yellow-300 uppercase tracking-widest mt-0.5">Sun at 52°</span>
+              </div>
+
+              <svg id="astrolabe-svg" class="w-full h-full drop-shadow-[0_10px_25px_rgba(0,0,0,0.85)]" viewBox="0 0 320 220">
+                <defs>
+                  <radialGradient id="brass-plate-grad" cx="45%" cy="40%" r="60%">
+                    <stop offset="0%" stop-color="#fef08a" />
+                    <stop offset="25%" stop-color="#d97706" />
+                    <stop offset="65%" stop-color="#78350f" />
+                    <stop offset="100%" stop-color="#451a03" />
+                  </radialGradient>
+                  <linearGradient id="brass-rim-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fef3c7" />
+                    <stop offset="30%" stop-color="#b45309" />
+                    <stop offset="70%" stop-color="#fef08a" />
+                    <stop offset="100%" stop-color="#451a03" />
+                  </linearGradient>
+                  <linearGradient id="alidade-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#b45309" />
+                    <stop offset="35%" stop-color="#fef3c7" />
+                    <stop offset="70%" stop-color="#d97706" />
+                    <stop offset="100%" stop-color="#78350f" />
+                  </linearGradient>
+                  <filter id="sun-glow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+
+                <g id="astrolabe-kursi">
+                  <ellipse cx="160" cy="18" rx="14" ry="11" fill="none" stroke="url(#brass-rim-grad)" stroke-width="4.5" />
+                  <path d="M 144 26 L 160 12 L 176 26 Z" fill="url(#brass-plate-grad)" stroke="#451a03" stroke-width="1" />
+                  <circle cx="160" cy="22" r="3" fill="#fef08a" stroke="#78350f" />
+                </g>
+
+                <g id="astrolabe-mater">
+                  <circle cx="160" cy="118" r="84" fill="url(#brass-plate-grad)" stroke="url(#brass-rim-grad)" stroke-width="6" />
+                  <circle cx="160" cy="118" r="76" fill="#181308" stroke="#d97706" stroke-width="1.2" />
+                  <circle cx="160" cy="118" r="66" fill="#291e0a" stroke="#b45309" stroke-width="0.8" stroke-dasharray="3,3" />
+                  <path d="M 94 118 Q 160 80 226 118" fill="none" stroke="#ca8a04" stroke-width="0.8" opacity="0.6" />
+                  <path d="M 104 118 Q 160 94 216 118" fill="none" stroke="#ca8a04" stroke-width="0.8" opacity="0.6" />
+                  <line x1="84" y1="118" x2="236" y2="118" stroke="#ca8a04" stroke-width="0.9" opacity="0.7" />
+                  <line x1="160" y1="42" x2="160" y2="194" stroke="#ca8a04" stroke-width="0.9" opacity="0.7" />
+                  <text x="238" y="121" fill="#fef08a" font-size="6" font-family="monospace" font-weight="bold">0°</text>
+                  <text x="160" y="40" fill="#fef08a" font-size="6" font-family="monospace" text-anchor="middle" font-weight="bold">90°</text>
+                  <text x="82" y="121" fill="#fef08a" font-size="6" font-family="monospace" text-anchor="end" font-weight="bold">0°</text>
+                  <g transform="rotate(-52 160 118)">
+                    <line x1="236" y1="118" x2="244" y2="118" stroke="#facc15" stroke-width="2.5" />
+                    <circle cx="241" cy="118" r="2" fill="#fde047" filter="url(#sun-glow)" />
+                  </g>
+                </g>
+
+                <g id="solar-rays">
+                  <line id="solar-incoming-beam" x1="270" y1="25" x2="216" y2="74" stroke="#fef08a" stroke-width="2.5" opacity="0.85" filter="url(#sun-glow)" />
+                  <line id="solar-through-beam" x1="216" y1="74" x2="104" y2="162" stroke="#fef08a" stroke-width="3" opacity="0" filter="url(#sun-glow)" />
+                  <circle id="solar-focal-spot" cx="104" cy="162" r="3.5" fill="#ffffff" stroke="#facc15" stroke-width="1.5" opacity="0" filter="url(#sun-glow)" />
+                </g>
+
+                <g id="astrolabe-alidade-arm" transform="rotate(-18 160 118)" style="cursor: grab;">
+                  <polygon points="68,115 160,113 252,115 258,118 252,121 160,123 68,121 62,118" fill="url(#alidade-grad)" stroke="#451a03" stroke-width="0.8" />
+                  <line x1="68" y1="118" x2="252" y2="118" stroke="#fef9c3" stroke-width="0.6" opacity="0.8" />
+                  <rect x="223" y="104" width="10" height="28" rx="2" fill="url(#brass-rim-grad)" stroke="#451a03" stroke-width="0.8" />
+                  <circle cx="228" cy="118" r="3.2" fill="#090d16" stroke="#fef08a" stroke-width="1" />
+                  <rect x="87" y="104" width="10" height="28" rx="2" fill="url(#brass-rim-grad)" stroke="#451a03" stroke-width="0.8" />
+                  <circle cx="92" cy="118" r="3.2" fill="#090d16" stroke="#fef08a" stroke-width="1" />
+                  <circle cx="160" cy="118" r="8" fill="url(#brass-plate-grad)" stroke="#451a03" stroke-width="1.5" />
+                  <circle cx="160" cy="118" r="4" fill="#fef08a" stroke="#78350f" stroke-width="1" />
+                </g>
+              </svg>
+            </div>
+
+            <!-- Controls -->
+            <div class="w-full max-w-sm space-y-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <div class="flex items-center justify-between text-xs text-slate-300">
+                <span class="flex items-center gap-1 font-semibold">
+                  <i data-lucide="compass" class="w-3.5 h-3.5 text-amber-400"></i> Turn Alidade:
+                </span>
+                <div class="flex items-center gap-1">
+                  <button onclick="stepAlidade(-1)" class="w-6 h-6 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold font-mono text-xs">-1°</button>
+                  <button onclick="stepAlidade(-5)" class="w-7 h-6 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold font-mono text-[10px]">-5°</button>
+                  <button onclick="stepAlidade(5)" class="w-7 h-6 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold font-mono text-[10px]">+5°</button>
+                  <button onclick="stepAlidade(1)" class="w-6 h-6 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold font-mono text-xs">+1°</button>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] text-slate-500 font-mono">0°</span>
+                <input type="range" id="astrolabe-slider" min="0" max="90" value="18" oninput="updateAlidadeAngle(this.value)" class="w-full accent-amber-500 bg-slate-800 rounded-lg appearance-none h-2 cursor-pointer">
+                <span class="text-[10px] text-slate-500 font-mono">90°</span>
+              </div>
+              <div class="flex justify-between items-center pt-2 border-t border-slate-800/80">
+                <p class="text-[10px] text-slate-400">Catch the sunbeam inside the pinhole vanes!</p>
+                <button onclick="verifyAstrolabeSighting()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black px-4 py-1.5 rounded-lg text-xs uppercase tracking-wider shadow-md shadow-amber-950/40 flex items-center gap-1.5">
+                  <i data-lucide="crosshair" class="w-3.5 h-3.5 text-slate-950"></i> Verify Altitude
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PUZZLE 2: CAMERA OBSCURA (Chamber 6) -->
+          <div id="boss-game-camera" class="w-full flex-col items-center gap-3 hidden">
+            <div class="w-full flex justify-between items-center px-3 py-1.5 bg-slate-950 border border-amber-500/30 rounded-lg text-xs">
+              <span class="text-amber-300 font-bold uppercase tracking-wider text-[11px]">Ibn al-Haytham's Dark Chamber (Al-Bayt al-Muthlim)</span>
+              <span id="camera-status-tag" class="px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-red-950 border border-red-500/40 text-red-400">BLURRED</span>
+            </div>
+
+            <div class="relative w-full max-w-sm h-52 bg-slate-950 border border-slate-800 rounded-xl p-3 flex items-center justify-between overflow-hidden">
+              <!-- Outside Object: Candle -->
+              <div class="flex flex-col items-center">
+                <span class="text-[9px] text-amber-400 font-bold mb-1">Light Source</span>
+                <div class="text-3xl animate-bounce">🕯️</div>
+              </div>
+
+              <!-- Pinhole Wall -->
+              <div class="h-full w-2 bg-slate-700 relative flex items-center justify-center">
+                <div id="pinhole-aperture" class="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_12px_#fbbf24]"></div>
+              </div>
+
+              <!-- Inside Inverted Screen -->
+              <div class="flex flex-col items-center justify-center w-28 h-40 bg-slate-900 border border-slate-700 rounded-lg relative overflow-hidden">
+                <span class="text-[8px] text-slate-400 absolute top-1">Screen</span>
+                <div id="camera-inverted-img" class="text-3xl transform rotate-180 transition-all duration-300 filter blur-md opacity-30">🕯️</div>
+                <span id="camera-focus-readout" class="text-[9px] font-mono text-amber-400 absolute bottom-1">Focus: 35%</span>
+              </div>
+            </div>
+
+            <div class="w-full max-w-sm space-y-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <div class="flex justify-between text-xs text-slate-300">
+                <span>Aperture Focal Slider:</span>
+                <span class="text-amber-400 font-mono font-bold" id="camera-slider-val">35mm</span>
+              </div>
+              <input type="range" id="camera-slider" min="10" max="90" value="35" oninput="updateCameraFocus(this.value)" class="w-full accent-amber-500 bg-slate-800 rounded-lg appearance-none h-2 cursor-pointer">
+              <div class="flex justify-between items-center pt-2 border-t border-slate-800/80">
+                <p class="text-[10px] text-slate-400">Target: Exact focal pinhole diameter = 72mm</p>
+                <button onclick="verifyCameraObscura()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-4 py-1.5 rounded-lg text-xs uppercase tracking-wider">
+                  Verify Focus
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PUZZLE 3: ELEPHANT CLOCK ESCAPEMENT (Chamber 8) -->
+          <div id="boss-game-clock" class="w-full flex-col items-center gap-3 hidden">
+            <div class="w-full flex justify-between items-center px-3 py-1.5 bg-slate-950 border border-amber-500/30 rounded-lg text-xs">
+              <span class="text-amber-300 font-bold uppercase tracking-wider text-[11px]">Al-Jazari's Float Escapement (Sinking Bowl)</span>
+              <span id="clock-status-tag" class="px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-amber-950 border border-amber-500 text-amber-300">FILLING (25s)</span>
+            </div>
+
+            <div class="relative w-full max-w-sm h-48 bg-slate-950 border border-slate-800 rounded-xl p-4 flex flex-col justify-end items-center overflow-hidden">
+              <!-- Water Reservoir -->
+              <div class="w-48 h-32 border-2 border-amber-500/40 rounded-b-2xl relative bg-blue-950/30 overflow-hidden flex flex-col justify-end items-center">
+                <div id="clock-water-fill" class="w-full bg-blue-600/40 transition-all duration-300" style="height: 35%;"></div>
+                <!-- Sinking Bowl (Tarjahar) -->
+                <div id="clock-float-bowl" class="absolute w-20 h-8 border-2 border-amber-400 rounded-b-xl bg-amber-900/60 flex items-center justify-center transition-all duration-300" style="bottom: 30%;">
+                  <span class="text-[8px] font-mono text-amber-200">Tarjahar</span>
+                </div>
+              </div>
+              <span class="text-[10px] text-slate-400 mt-2">Target siphon balance: Exactly 60 seconds (1 minute strike)</span>
+            </div>
+
+            <div class="w-full max-w-sm space-y-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <div class="flex justify-between text-xs text-slate-300">
+                <span>Water Flow Rate Regulator:</span>
+                <span class="text-amber-400 font-mono font-bold" id="clock-slider-val">25s</span>
+              </div>
+              <input type="range" id="clock-slider" min="10" max="90" value="25" oninput="updateClockEscapement(this.value)" class="w-full accent-amber-500 bg-slate-800 rounded-lg appearance-none h-2 cursor-pointer">
+              <div class="flex justify-between items-center pt-2 border-t border-slate-800/80">
+                <p class="text-[10px] text-slate-400">Balance the orifice to strike the gong at 60s</p>
+                <button onclick="verifyClockEscapement()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-4 py-1.5 rounded-lg text-xs uppercase tracking-wider">
+                  Strike Gong
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PUZZLE 4: JABIR'S ALEMBIC DISTILLATION (Chamber 10) -->
+          <div id="boss-game-alembic" class="w-full flex-col items-center gap-3 hidden">
+            <div class="w-full flex justify-between items-center px-3 py-1.5 bg-slate-950 border border-amber-500/30 rounded-lg text-xs">
+              <span class="text-amber-300 font-bold uppercase tracking-wider text-[11px]">Jabir ibn Hayyan's Retort & Alembic Still</span>
+              <span id="alembic-status-tag" class="px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-blue-950 border border-blue-500 text-blue-300">TOO COLD (45°C)</span>
+            </div>
+
+            <div class="relative w-full max-w-sm h-48 bg-slate-950 border border-slate-800 rounded-xl p-3 flex items-center justify-around">
+              <div class="flex flex-col items-center">
+                <div class="text-4xl animate-pulse">⚗️</div>
+                <span class="text-[9px] text-amber-400 font-mono mt-1">Cucurbit Flask</span>
+              </div>
+              <div class="flex flex-col items-center justify-center bg-slate-900 border border-slate-800 p-3 rounded-lg w-36">
+                <span class="text-[10px] text-slate-400">Vapor Temperature:</span>
+                <span id="alembic-temp-display" class="text-2xl font-mono font-bold text-amber-300 my-1">45°C</span>
+                <span class="text-[8px] text-slate-500">Ethanol condensation target = 78°C</span>
+              </div>
+            </div>
+
+            <div class="w-full max-w-sm space-y-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <div class="flex justify-between text-xs text-slate-300">
+                <span>Furnace Heat Control:</span>
+                <span class="text-amber-400 font-mono font-bold" id="alembic-slider-val">45°C</span>
+              </div>
+              <input type="range" id="alembic-slider" min="20" max="110" value="45" oninput="updateAlembicTemp(this.value)" class="w-full accent-amber-500 bg-slate-800 rounded-lg appearance-none h-2 cursor-pointer">
+              <div class="flex justify-between items-center pt-2 border-t border-slate-800/80">
+                <p class="text-[10px] text-slate-400">Calibrate to exactly 78°C to condense pure essence</p>
+                <button onclick="verifyAlembicDistillation()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-4 py-1.5 rounded-lg text-xs uppercase tracking-wider">
+                  Condense Spirit
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PUZZLE 5: IBN SINA'S CANON OF MEDICINE QUARANTINE (Chamber 11) -->
+          <div id="boss-game-canon" class="w-full flex-col items-center gap-3 hidden">
+            <div class="w-full flex justify-between items-center px-3 py-1.5 bg-slate-950 border border-amber-500/30 rounded-lg text-xs">
+              <span class="text-amber-300 font-bold uppercase tracking-wider text-[11px]">Ibn Sina's Contagion Protocol (Al-Arba'iniya)</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-amber-950 border border-amber-500 text-amber-300">EPIDEMIC ALERT</span>
+            </div>
+
+            <div class="w-full max-w-sm bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs space-y-2">
+              <p class="text-slate-300">A caravan arrives in Rayy showing high fever, bubonic swelling, and respiratory coughing. Select the authentic Ibn Sina clinical protocol:</p>
+              <div class="space-y-1.5 text-[11px]">
+                <label class="block p-2 rounded bg-slate-900 border border-slate-800 cursor-pointer hover:border-amber-400">
+                  <input type="radio" name="canon-opt" value="wrong1" class="mr-2 accent-amber-500"> Bleed the patients immediately with barber razors.
+                </label>
+                <label class="block p-2 rounded bg-slate-900 border border-slate-800 cursor-pointer hover:border-amber-400">
+                  <input type="radio" name="canon-opt" value="correct" class="mr-2 accent-amber-500"> Enforce <strong>Al-Arba'iniya</strong> (40-day strict isolation) & cleanse clothes with vinegar/alcohol.
+                </label>
+                <label class="block p-2 rounded bg-slate-900 border border-slate-800 cursor-pointer hover:border-amber-400">
+                  <input type="radio" name="canon-opt" value="wrong2" class="mr-2 accent-amber-500"> Let all merchants mix freely in the central bazaar.
+                </label>
+              </div>
+            </div>
+
+            <div class="w-full max-w-sm flex justify-end">
+              <button onclick="verifyCanonMedicine()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-4 py-1.5 rounded-lg text-xs uppercase tracking-wider">
+                Seal Quarantine Decree
+              </button>
+            </div>
+          </div>
+
+          <!-- PUZZLE 6: AL-KHWARIZMI'S ALGEBRA EQUATION (Chamber 12) -->
+          <div id="boss-game-algebra" class="w-full flex-col items-center gap-3 hidden">
+            <div class="w-full flex justify-between items-center px-3 py-1.5 bg-slate-950 border border-amber-500/30 rounded-lg text-xs">
+              <span class="text-amber-300 font-bold uppercase tracking-wider text-[11px]">Al-Khwarizmi's Equation of Balancing (Al-Jabr wa'l-Muqabala)</span>
+              <span class="px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-amber-950 border border-amber-500 text-amber-300">x² + 10x = 39</span>
+            </div>
+
+            <div class="w-full max-w-sm bg-slate-950 border border-slate-800 rounded-xl p-3 text-center space-y-2">
+              <p class="text-xs text-slate-300">Complete the square for the inheritance distribution equation:</p>
+              <div class="p-3 bg-slate-900 border border-amber-500/30 rounded-lg font-mono text-sm text-amber-300">
+                x² + 10x = 39  ⟶  (x + 5)² = 39 + 25 = 64  ⟶  x + 5 = 8
+              </div>
+              <p class="text-[11px] text-slate-400">Solve for root <strong class="text-amber-400">x</strong> (the positive value of shares):</p>
+              <div class="flex justify-center gap-3">
+                <button onclick="selectAlgebraAns(2)" id="alg-btn-2" class="px-4 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs font-mono text-slate-200">x = 2</button>
+                <button onclick="selectAlgebraAns(3)" id="alg-btn-3" class="px-4 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs font-mono text-slate-200">x = 3</button>
+                <button onclick="selectAlgebraAns(5)" id="alg-btn-5" class="px-4 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs font-mono text-slate-200">x = 5</button>
+                <button onclick="selectAlgebraAns(8)" id="alg-btn-8" class="px-4 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs font-mono text-slate-200">x = 8</button>
+              </div>
+            </div>
+
+            <div class="w-full max-w-sm flex justify-end">
+              <button onclick="verifyAlgebraEquation()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-4 py-1.5 rounded-lg text-xs uppercase tracking-wider">
+                Seal Algebraic Scroll
+              </button>
+            </div>
+          </div>
+
+          <!-- PUZZLE 7: SEAL OF AL-AMANAH & TAWHID (Chamber 15) -->
+          <div id="boss-game-amanah" class="w-full flex-col items-center gap-3 hidden">
+            <div class="w-full flex justify-between items-center px-3 py-1.5 bg-slate-950 border border-amber-500/30 rounded-lg text-xs">
+              <span class="text-amber-300 font-bold uppercase tracking-wider text-[11px]">The Grand Synthesis: Seal of Al-Amanah & Tawhid</span>
+              <span id="amanah-status-tag" class="px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-red-950 border border-red-500/40 text-red-400">DISCORD (50%)</span>
+            </div>
+
+            <div class="relative w-full max-w-sm h-48 bg-slate-950 border border-slate-800 rounded-xl p-3 flex flex-col items-center justify-center">
+              <div class="w-24 h-24 rounded-full border-2 border-amber-400/80 flex items-center justify-center bg-amber-950/20 relative shadow-[0_0_20px_#d97706]">
+                <i data-lucide="shield" class="w-12 h-12 text-amber-400"></i>
+                <div id="amanah-ring-glow" class="absolute inset-0 rounded-full border-2 border-emerald-400 opacity-0 animate-ping"></div>
+              </div>
+              <p class="text-[10px] text-slate-300 mt-2 text-center">Harmonize the triadic pillars: <strong>'Abd</strong> (servant), <strong>Khalifah</strong> (steward), and <strong>Mizan</strong> (balance) to 100%.</p>
+            </div>
+
+            <div class="w-full max-w-sm space-y-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <div class="flex justify-between text-xs text-slate-300">
+                <span>Tawhidic Epistemic Alignment:</span>
+                <span class="text-amber-400 font-mono font-bold" id="amanah-slider-val">50%</span>
+              </div>
+              <input type="range" id="amanah-slider" min="0" max="100" value="50" oninput="updateAmanahHarmonization(this.value)" class="w-full accent-amber-500 bg-slate-800 rounded-lg appearance-none h-2 cursor-pointer">
+              <div class="flex justify-between items-center pt-2 border-t border-slate-800/80">
+                <p class="text-[10px] text-slate-400">Align all 3 virtues to precisely 100%</p>
+                <button onclick="verifyAmanahSeal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 text-white font-black px-4 py-1.5 rounded-lg text-xs uppercase tracking-wider">
+                  Forge Sacred Seal
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Feedback & Reward Box -->
+        <div id="boss-feedback-box" class="hidden p-3 rounded-lg border border-amber-500/40 bg-amber-950/30 text-xs text-amber-200"></div>
+
+        <!-- BIG PROCEED TO NEXT CHAMBER ACTION BUTTON -->
+        <div id="boss-proceed-container" class="hidden w-full max-w-sm pt-2">
+          <button onclick="proceedToNextChamberAfterBoss()" class="w-full py-3.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-500 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm uppercase tracking-wider rounded-xl shadow-xl shadow-emerald-950/60 flex items-center justify-center gap-2 border-2 border-emerald-200 transform hover:scale-[1.02] active:scale-95 transition animate-pulse">
+            <span id="boss-proceed-text">Proceed to Chamber 4</span>
+            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-slate-950"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- 4. RESEARCH SURVEY MODAL (CASE STUDY)      -->
+  <!-- ========================================== -->
+  <div id="survey-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/90 backdrop-blur-md hidden overflow-y-auto">
+    <div class="bg-slate-900 border border-amber-500/30 rounded-2xl max-w-xl w-full p-5 sm:p-6 shadow-2xl shadow-amber-950/50 flex flex-col max-h-[92vh]">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3 flex-shrink-0">
+        <div>
+          <span class="text-[10px] uppercase font-bold tracking-widest text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2 py-0.5 rounded">
+            Post-Intervention Evaluation
+          </span>
+          <h2 class="fantasy-title text-base sm:text-lg font-bold text-amber-300 mt-1">
+            Research Evaluation & Satisfaction Survey
+          </h2>
+        </div>
+        <button onclick="closeResearchSurveyModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Scrollable Survey Content -->
+      <div class="overflow-y-auto space-y-4 py-3 flex-1 text-xs text-slate-300 pr-1">
+        
+        <!-- Score Summary Card -->
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+          <div>
+            <span class="block text-[10px] text-slate-500 uppercase">Scholar</span>
+            <span id="survey-summary-name" class="font-bold text-slate-200 truncate block">Ahmad</span>
+          </div>
+          <div>
+            <span class="block text-[10px] text-slate-500 uppercase">Class & Matric</span>
+            <span id="survey-summary-class" class="font-bold text-amber-400 font-mono text-[11px] truncate block">KMB12 • 1220491</span>
+          </div>
+          <div>
+            <span class="block text-[10px] text-slate-500 uppercase">Final Score</span>
+            <span id="survey-summary-score" class="font-bold text-emerald-400 font-mono">0 / 0</span>
+          </div>
+          <div>
+            <span class="block text-[10px] text-slate-500 uppercase">Accuracy</span>
+            <span id="survey-summary-accuracy" class="font-bold text-yellow-300 font-mono">0%</span>
+          </div>
+        </div>
+
+        <p class="text-[11px] text-slate-400 italic">
+          Please rate each construct on a scale of 1 (Strongly Disagree) to 5 (Strongly Agree) for our instructional design case study.
+        </p>
+
+        <!-- Survey Item 1 -->
+        <div class="space-y-1.5 bg-slate-950/50 p-3 rounded-lg border border-slate-800">
+          <label class="block font-semibold text-slate-200">
+            1. Conceptual Gain: The adventure strengthened my understanding of the integration between Naqli (revelation) and Aqli (rational) knowledge.
+          </label>
+          <div class="flex justify-between items-center pt-1 text-[11px]">
+            <span class="text-slate-500">1 (Disagree)</span>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gain" value="1" class="accent-amber-500"> 1</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gain" value="2" class="accent-amber-500"> 2</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gain" value="3" class="accent-amber-500"> 3</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gain" value="4" class="accent-amber-500"> 4</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gain" value="5" checked class="accent-amber-500"> 5</label>
+            </div>
+            <span class="text-amber-400">5 (Agree)</span>
+          </div>
+        </div>
+
+        <!-- Survey Item 2 -->
+        <div class="space-y-1.5 bg-slate-950/50 p-3 rounded-lg border border-slate-800">
+          <label class="block font-semibold text-slate-200">
+            2. Epistemic Clarity: The challenges helped clarify how classical Islamic scientists viewed nature as divine signs (Ayat) under the Tawhidic framework.
+          </label>
+          <div class="flex justify-between items-center pt-1 text-[11px]">
+            <span class="text-slate-500">1</span>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-1"><input type="radio" name="survey-clarity" value="1" class="accent-amber-500"> 1</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-clarity" value="2" class="accent-amber-500"> 2</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-clarity" value="3" class="accent-amber-500"> 3</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-clarity" value="4" class="accent-amber-500"> 4</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-clarity" value="5" checked class="accent-amber-500"> 5</label>
+            </div>
+            <span class="text-amber-400">5</span>
+          </div>
+        </div>
+
+        <!-- Survey Item 3 -->
+        <div class="space-y-1.5 bg-slate-950/50 p-3 rounded-lg border border-slate-800">
+          <label class="block font-semibold text-slate-200">
+            3. Gamification Motivation: Interactive simulations (such as the 3D Astrolabe alignment) increased my engagement compared to standard lectures.
+          </label>
+          <div class="flex justify-between items-center pt-1 text-[11px]">
+            <span class="text-slate-500">1</span>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gamify" value="1" class="accent-amber-500"> 1</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gamify" value="2" class="accent-amber-500"> 2</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gamify" value="3" class="accent-amber-500"> 3</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gamify" value="4" class="accent-amber-500"> 4</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-gamify" value="5" checked class="accent-amber-500"> 5</label>
+            </div>
+            <span class="text-amber-400">5</span>
+          </div>
+        </div>
+
+        <!-- Survey Item 4 -->
+        <div class="space-y-1.5 bg-slate-950/50 p-3 rounded-lg border border-slate-800">
+          <label class="block font-semibold text-slate-200">
+            4. Recommendation: I recommend incorporating this interactive case study tool for future cohorts studying Islamic Science.
+          </label>
+          <div class="flex justify-between items-center pt-1 text-[11px]">
+            <span class="text-slate-500">1</span>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-1"><input type="radio" name="survey-recommend" value="1" class="accent-amber-500"> 1</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-recommend" value="2" class="accent-amber-500"> 2</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-recommend" value="3" class="accent-amber-500"> 3</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-recommend" value="4" class="accent-amber-500"> 4</label>
+              <label class="flex items-center gap-1"><input type="radio" name="survey-recommend" value="5" checked class="accent-amber-500"> 5</label>
+            </div>
+            <span class="text-amber-400">5</span>
+          </div>
+        </div>
+
+        <!-- Survey Item 5 (Qualitative) -->
+        <div class="space-y-1.5 bg-slate-950/50 p-3 rounded-lg border border-slate-800">
+          <label class="block font-semibold text-slate-200">
+            5. Qualitative Insights: What was the most meaningful lesson or concept you learned from this experience?
+          </label>
+          <textarea id="survey-feedback" rows="2" placeholder="e.g. How Ibn al-Haytham revolutionized experimental optics and why classification unifies rather than divides knowledge..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-amber-400 transition placeholder-gray-500"></textarea>
+        </div>
+
+      </div>
+
+      <!-- Submission Status & Button -->
+      <div class="border-t border-slate-800 pt-3 flex flex-col sm:flex-row items-center justify-between gap-2 flex-shrink-0">
+        <span id="survey-submission-status" class="text-[11px] text-slate-400">
+          Ready to sync with Google Sheets.
+        </span>
+        <button id="survey-submit-btn" onclick="submitFinalResearchData()" class="w-full sm:w-auto px-5 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-emerald-950/50 flex items-center justify-center gap-2 transition">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span>Submit Final Research Data</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 4.5. COMPREHENSIVE SCHOLARLY ACHIEVEMENTS MODAL -->
+  <!-- ========================================== -->
+  <div id="achievements-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/95 backdrop-blur-lg hidden overflow-y-auto">
+    <div class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border-2 border-amber-500/60 rounded-2xl max-w-2xl w-full p-5 sm:p-7 shadow-2xl shadow-amber-950/70 flex flex-col max-h-[92vh] relative">
+      
+      <!-- Close button -->
+      <button onclick="closeAchievementsModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="text-center border-b border-amber-500/30 pb-4 mb-4 flex-shrink-0">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/40 text-amber-300 text-[10px] font-bold uppercase tracking-widest mb-2">
+          <i data-lucide="crown" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>Official Scholarly Honours & Portfolio</span>
+        </div>
+        <h2 class="fantasy-title text-xl sm:text-2xl font-black text-amber-200 tracking-wide">
+          GRAND SCHOLAR OF BAGHDAD
+        </h2>
+        <h3 class="arabic-title text-base sm:text-lg text-amber-400 font-bold">
+          شهادة إنجازات بيت الحكمة
+        </h3>
+        <p class="text-xs text-slate-300 mt-1 max-w-lg mx-auto">
+          Your scholarly research inquiry has been permanently inscribed into the academic registry. Here is the full record of your trials and earned sacred relics.
+        </p>
+      </div>
+
+      <!-- Scrollable Achievements Body -->
+      <div class="overflow-y-auto space-y-4 pr-1 flex-1">
+        
+        <!-- Scholar Identity & Overall Grade Hero Card -->
+        <div class="bg-slate-950/80 border border-amber-500/40 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-inner">
+          <div class="flex items-center gap-3">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-700 flex items-center justify-center text-slate-950 font-black text-2xl border border-yellow-200 shadow-md">
+              <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400 uppercase tracking-widest font-mono">Registered Scholar</span>
+              <h3 id="achieve-scholar-name" class="font-bold text-base sm:text-lg text-white">Ahmad bin Abdullah</h3>
+              <p id="achieve-scholar-meta" class="text-xs text-amber-400 font-mono">Class: KMB12 • Matric: 1220491</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 text-center">
+            <div class="bg-slate-900 border border-slate-800 px-3 py-2 rounded-xl">
+              <span class="text-[9px] uppercase text-slate-400 block">Total Score</span>
+              <span id="achieve-score-stat" class="font-bold font-mono text-emerald-400 text-sm">0 / 0</span>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 px-3 py-2 rounded-xl">
+              <span class="text-[9px] uppercase text-slate-400 block">Accuracy</span>
+              <span id="achieve-accuracy-stat" class="font-bold font-mono text-amber-300 text-sm">0%</span>
+            </div>
+            <div class="bg-amber-950/50 border border-amber-500/50 px-3 py-2 rounded-xl">
+              <span class="text-[9px] uppercase text-amber-300 block">Experience</span>
+              <span id="achieve-xp-stat" class="font-bold font-mono text-yellow-300 text-sm">0 XP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Earned Sacred Relics & Badges Showcase -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="fantasy-title text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+              <span>Earned Relics & Sacred Badges</span>
+            </h4>
+            <span id="achieve-relic-count" class="text-[11px] font-mono text-slate-400">0 of 7 Unlocked</span>
+          </div>
+          
+          <div id="achieve-badges-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+            <!-- Populated dynamically with full badges -->
+          </div>
+        </div>
+
+        <!-- Academic Assessment Breakdown Summary -->
+        <div class="bg-slate-950/60 border border-slate-800 rounded-xl p-3 text-xs space-y-1.5">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Course Learning Outcome Achievement:</span>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            • Mastery of the <strong>Tawhidic Epistemological Framework</strong>, uniting Naqli revelation with empirical Aqli science.<br>
+            • Recognition of natural order as <strong>Ayat Manzurah</strong> (divine cosmological signs) and understanding of <strong>Fardhu Kifayah</strong> in civilizational stewardship (Khalifah).<br>
+            • Practical comprehension of classical inventions: Astrolabe, Optics, Mechanical Automation, Distillation, and Medical Quarantine.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Action Footer with Transcript Download -->
+      <div class="border-t border-slate-800 pt-3 mt-3 flex flex-col sm:flex-row items-center justify-between gap-2 flex-shrink-0">
+        <span class="text-[10px] text-slate-400">
+          Click any badge to view or download its individual certificate.
+        </span>
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <button onclick="downloadCompleteTranscriptPNG()" class="flex-1 sm:flex-initial px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-amber-950/50 flex items-center justify-center gap-1.5 transition">
+            <i data-lucide="file-down" class="w-4 h-4"></i>
+            <span>Download Full Portfolio (.PNG)</span>
+          </button>
+          <button onclick="closeAchievementsModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs rounded-xl transition">
+            Close
+          </button>
+        </div>
+      </div>
+
+      <!-- Hidden Canvas for Full Transcript Portfolio Rendering -->
+      <canvas id="transcript-export-canvas" width="800" height="960" class="hidden"></canvas>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 5. INSTRUCTOR SETTINGS MODAL               -->
+  <!-- ========================================== -->
+  <div id="config-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-5 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+        <h3 class="font-bold text-sm text-slate-200 flex items-center gap-2">
+          <i data-lucide="settings" class="w-4 h-4 text-amber-400"></i>
+          <span>Instructor Database Settings</span>
+        </h3>
+        <button onclick="toggleConfigModal()" class="text-slate-400 hover:text-white">✕</button>
+      </div>
+
+      <div class="space-y-2 text-xs">
+        <label class="block font-semibold text-slate-300">
+          Google Apps Script Web App Endpoint URL:
+        </label>
+        <input type="text" id="config-script-url" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-amber-300 font-mono focus:outline-none focus:border-amber-400">
+        <p class="text-[11px] text-slate-400 leading-relaxed">
+          The production endpoint is currently connected to: 
+          <code class="text-amber-400 block break-all mt-1">185_5YCOR11dwx3R0nl9GPyfkGU4eo-0joR9rM2LRtYE</code>
+        </p>
+      </div>
+
+      <div class="flex justify-end gap-2 pt-2 border-t border-slate-800">
+        <button onclick="saveEndpointConfig()" class="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-lg transition">
+          Save Configuration
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- CONFIRM LOGOUT & RESET MODAL               -->
+  <!-- ========================================== -->
+  <div id="reset-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md hidden">
+    <div class="bg-slate-900 border-2 border-red-500/60 rounded-2xl max-w-sm w-full p-5 text-center shadow-2xl shadow-red-950/70 space-y-4">
+      <div class="w-12 h-12 rounded-full bg-red-950/80 border border-red-500/50 text-red-400 flex items-center justify-center mx-auto shadow-inner">
+        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+      </div>
+      <div>
+        <h3 class="fantasy-title text-base font-bold text-white">Reset Adventure?</h3>
+        <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+          This will log out the current scholar, clear all chamber progress, reset quiz scores, and lock all forged relics. You will start again from Chamber 1.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 pt-2 border-t border-slate-800">
+        <button onclick="closeLogoutResetModal()" class="flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs transition">
+          Cancel
+        </button>
+        <button onclick="confirmLogoutReset()" class="flex-1 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-red-950/50 flex items-center justify-center gap-1">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+          <span>Confirm Reset</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- RELIC BADGE MODAL WITH DOWNLOAD CAPABILITY -->
+  <!-- ========================================== -->
+  <div id="relic-badge-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md hidden overflow-y-auto">
+    <div class="bg-slate-900 border border-amber-500/50 rounded-2xl max-w-sm w-full p-5 text-center shadow-2xl shadow-amber-950/60 relative flex flex-col items-center">
+      
+      <!-- Close Button -->
+      <button onclick="closeRelicBadgeModal()" class="absolute top-3 right-3 text-slate-400 hover:text-white p-1">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Badge Container to Render -->
+      <div id="badge-card-render" class="w-full bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-2 border-amber-500/60 rounded-xl p-5 mb-4 shadow-inner relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-24 h-24 bg-amber-500/10 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -left-10 w-24 h-24 bg-amber-500/10 rounded-full blur-xl pointer-events-none"></div>
+
+        <span class="text-[9px] uppercase font-mono font-bold tracking-widest text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded-full bg-amber-950/40">
+          Sacred Relic of Baghdad
+        </span>
+
+        <div class="w-20 h-20 mx-auto my-3 rounded-full bg-gradient-to-br from-amber-400 via-amber-600 to-yellow-700 flex items-center justify-center border-2 border-amber-200 shadow-lg shadow-amber-500/30">
+          <i id="badge-icon" data-lucide="award" class="w-10 h-10 text-slate-950"></i>
+        </div>
+
+        <h3 id="badge-relic-name" class="fantasy-title text-base font-black text-amber-200 leading-tight">
+          Baghdad Astrolabe
+        </h3>
+        <p id="badge-relic-arabic" class="arabic-title text-xs text-amber-400/90 mt-0.5">
+          الأسطرلاب البغدادي
+        </p>
+
+        <div class="my-3 border-t border-b border-amber-500/20 py-2">
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Awarded to Scholar</span>
+          <h4 id="badge-student-name" class="font-bold text-sm text-white tracking-wide">
+            Ahmad bin Abdullah
+          </h4>
+          <span id="badge-student-meta" class="text-[10px] font-mono text-amber-300">
+            KMB12 • Matric: 1220491
+          </span>
+        </div>
+
+        <p id="badge-relic-lore" class="text-[10px] text-slate-300 italic leading-snug">
+          Mastered the celestial calculations and timekeeping precision of classical Baghdad.
+        </p>
+        
+        <div class="mt-2 text-[8px] text-slate-500 font-mono" id="badge-date-issued">
+          Issued: 2026-11-03
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="w-full flex flex-col gap-2">
+        <button onclick="downloadRelicBadgePNG()" class="w-full py-2.5 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-amber-500/30 flex items-center justify-center gap-1.5 transition">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>Download Badge (.PNG)</span>
+        </button>
+        <button onclick="proceedToNextChamberAfterBoss()" class="w-full py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-emerald-950/50 flex items-center justify-center gap-1.5 transition border border-emerald-200">
+          <span>Proceed to Next Chamber</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Hidden Canvas for Badge Export -->
+      <canvas id="badge-export-canvas" width="600" height="720" class="hidden"></canvas>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 6. FOOTER CITATION                         -->
+  <!-- ========================================== -->
+  <footer class="bg-slate-950/90 border-t border-slate-900 px-4 py-2.5 flex flex-col sm:flex-row items-center justify-between gap-2 text-center text-[10px] text-slate-400 relative z-20">
+    <div>
+      Designed for Introduction to Islamic Science (ISI 1012) • Islamic Science Institute (ISI), Universiti Sains Islam Malaysia (USIM)
+    </div>
+    
+    <!-- GUIDEBOOK POPUP TRIGGER BUTTON AT BOTTOM -->
+    <button onclick="openGuidebookModal()" class="px-3 py-1 bg-gradient-to-r from-amber-500/30 to-yellow-500/30 hover:from-amber-500/40 hover:to-yellow-500/40 border border-amber-400/70 text-amber-200 font-bold rounded-full shadow-sm flex items-center gap-1.5 transition transform active:scale-95">
+      <i data-lucide="book-marked" class="w-3.5 h-3.5 text-amber-300"></i>
+      <span>Scholar's Guidebook & Rules</span>
+    </button>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- GUIDEBOOK & HOW-TO-PLAY MODAL              -->
+  <!-- ========================================== -->
+  <div id="guidebook-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/90 backdrop-blur-md hidden overflow-y-auto">
+    <div class="bg-slate-900 border-2 border-amber-500/50 rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl shadow-amber-950/60 flex flex-col max-h-[90vh]">
+      
+      <div class="flex items-center justify-between border-b border-amber-500/30 pb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-300">
+            <i data-lucide="compass" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h3 class="fantasy-title text-sm sm:text-base font-bold text-amber-200">Scholar's Field Guide</h3>
+            <p class="arabic-title text-xs text-amber-400">دَلِيلُ طَالِبِ الْعِلْمِ</p>
+          </div>
+        </div>
+        <button onclick="closeGuidebookModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="overflow-y-auto space-y-3 py-3 text-xs text-slate-300 leading-relaxed pr-1 flex-1">
+        <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800">
+          <h4 class="font-bold text-amber-300 flex items-center gap-1.5 mb-1 text-[11px] uppercase tracking-wide">
+            <i data-lucide="shuffle" class="w-3.5 h-3.5 text-amber-400"></i>
+            1. Randomized Anti-Cheat System
+          </h4>
+          <p class="text-[11px] text-slate-300">
+            Every scholar receives randomized question orders and rearranged answer choices (A, B, C, D). Comparing choice letters with peers will not match—you must comprehend the core concepts to succeed.
+          </p>
+        </div>
+
+        <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800">
+          <h4 class="font-bold text-amber-300 flex items-center gap-1.5 mb-1 text-[11px] uppercase tracking-wide">
+            <i data-lucide="timer" class="w-3.5 h-3.5 text-amber-400"></i>
+            2. Timed Assessment Protocol
+          </h4>
+          <p class="text-[11px] text-slate-300">
+            Each inquiry chamber allocates <strong>60 seconds per question</strong>. If the timer reaches zero, the current selection is locked automatically. Stay swift, focused, and decisive.
+          </p>
+        </div>
+
+        <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800">
+          <h4 class="font-bold text-amber-300 flex items-center gap-1.5 mb-1 text-[11px] uppercase tracking-wide">
+            <i data-lucide="footprints" class="w-3.5 h-3.5 text-amber-400"></i>
+            3. Strict Linear Progression
+          </h4>
+          <p class="text-[11px] text-slate-300">
+            The path of wisdom travels forward. You begin at Chamber 1 (Apprentice Tier) and must conquer each chamber sequentially. Once mastered, past chambers are cataloged as completed.
+          </p>
+        </div>
+
+        <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800">
+          <h4 class="font-bold text-amber-300 flex items-center gap-1.5 mb-1 text-[11px] uppercase tracking-wide">
+            <i data-lucide="swords" class="w-3.5 h-3.5 text-amber-400"></i>
+            4. Boss Relic Mechanism Riddles
+          </h4>
+          <p class="text-[11px] text-slate-300">
+            Completing milestone chambers activates historical 3D mechanism puzzles (such as calibrating the brass Astrolabe alidade or aligning the Camera Obscura pinhole). Solving them earns official downloadable relic certificates with your name and matric ID!
+          </p>
+        </div>
+
+        <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800">
+          <h4 class="font-bold text-amber-300 flex items-center gap-1.5 mb-1 text-[11px] uppercase tracking-wide">
+            <i data-lucide="send" class="w-3.5 h-3.5 text-amber-400"></i>
+            5. Final Survey & Database Submission
+          </h4>
+          <p class="text-[11px] text-slate-300">
+            Click <strong>"Finish & Survey"</strong> at any time or upon conquering Chamber 15 to log your grades, answer the 5 research survey questions, and receive your comprehensive academic honours portfolio.
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 pt-3 flex justify-end">
+        <button onclick="closeGuidebookModal()" class="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl transition">
+          Understood, Return to Scriptorium
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT LOGIC & DATABASE INTEGRATION    -->
+  <!-- ========================================== -->
+  <script>
+    // Embedded Production Endpoint
+    const DEFAULT_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxhz2gXa4dD68qTDPflz04ACFSc1u-DpPD3ztXQ2q0H3XIcBzJR-QWr20zUYU6WMssm/exec";
+
+    // Application State
+    const state = {
+      username: "",
+      studentClass: "",
+      matricNumber: "",
+      xp: 0,
+      currentTier: "apprentice",
+      currentProgressStep: 1, // STRICT LINEAR PROGRESSION: Must do chamber 1, then 2, then 3...
+      activeRoomId: null,
+      currentQuestions: [],
+      questionIndex: 0,
+      selectedOptionIndex: null,
+      answeredCurrent: false,
+      solvedRooms: new Set(),
+      unlockedArtifacts: new Set(),
+      gradedAttempted: 0,
+      gradedCorrect: 0,
+      scriptUrl: DEFAULT_APPS_SCRIPT_URL || localStorage.getItem("hOW_backend_url") || "",
+      // Timer State
+      questionTimer: null,
+      timeLeft: 60,
+      // 3D Astrolabe State
+      astrolabe: {
+        angle: 18,
+        target: 52
+      },
+      relicReqPending: null,
+      algebraAnswer: null,
+      currentViewingRelic: null
+    };
+
+    // Helper: Fisher-Yates Array Shuffle
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    // Sacred Relics Definition Dictionary
+    const RELIC_DETAILS = {
+      astrolabe: {
+        id: 'astrolabe',
+        name: 'Baghdad Astrolabe',
+        arabic: 'الأسطرلاب البغدادي',
+        icon: 'compass',
+        chamberReq: 3,
+        lore: 'Mastered celestial elevation calculations and timekeeping precision for prayer and navigation.'
+      },
+      camera: {
+        id: 'camera',
+        name: 'Camera Obscura',
+        arabic: 'البيت المظلم',
+        icon: 'eye',
+        chamberReq: 6,
+        lore: 'Demonstrated Ibn al-Haytham’s intromission optics by focusing inverted light in a darkened chamber.'
+      },
+      clock: {
+        id: 'clock',
+        name: 'Elephant Escapement',
+        arabic: 'ميزان ساعة الفيل',
+        icon: 'clock',
+        chamberReq: 8,
+        lore: 'Calibrated Al-Jazari’s hydraulic float bowl escapement to strike accurately every sixty seconds.'
+      },
+      alembic: {
+        id: 'alembic',
+        name: "Jabir's Alembic Still",
+        arabic: 'إنبيق جابر بن حيان',
+        icon: 'flask-conical',
+        chamberReq: 10,
+        lore: 'Mastered chemical condensation and distillation under Jabir ibn Hayyan’s laboratory methodology.'
+      },
+      canon: {
+        id: 'canon',
+        name: 'Canon of Medicine',
+        arabic: 'قانون ابن سينا في الطب',
+        icon: 'book-open',
+        chamberReq: 11,
+        lore: 'Enforced Ibn Sina’s Al-Arba’iniya forty-day clinical quarantine to halt contagious epidemics.'
+      },
+      algebra: {
+        id: 'algebra',
+        name: 'Algebra Scroll',
+        arabic: 'كتاب الجبر والمقابلة',
+        icon: 'calculator',
+        chamberReq: 12,
+        lore: 'Solved polynomial equations of restoration and balancing pioneered by Al-Khwarizmi.'
+      },
+      amanah: {
+        id: 'amanah',
+        name: 'Seal of Al-Amanah & Tawhid',
+        arabic: 'خاتم الأمانة والتوحيد',
+        icon: 'shield',
+        chamberReq: 15,
+        lore: 'Synthesized the triadic pillars of Abd, Khalifah, and Mizan under the unified Tawhidic paradigm.'
+      }
+    };
+
+    // 15 Curated Chambers Curriculum (All Options Uniformly Length-Balanced)
+    const CHAMBER_CURRICULUM = [
+      {
+        id: 1,
+        tier: 'apprentice',
+        name: 'Purpose of Life & Servitude',
+        tag: 'Worldview',
+        questions: [
+          {
+            q: "According to Syed Muhammad Naquib al-Attas, how is the Islamic Worldview defined?",
+            options: [
+              "Ru'yah al-Islam li al-Wujud as the vision of total reality.",
+              "A political governance mechanism organizing imperial cities.",
+              "A theoretical framework restricted exclusively to prayer laws.",
+              "A collection of historical legends explaining ancient clans."
+            ],
+            correct: 0,
+            expl: "Al-Attas defines the Islamic worldview as 'Ru'yah al-Islam li al-Wujud' (The Islamic Vision of Existence)."
+          },
+          {
+            q: "In the Islamic responsibility matrix, mastering medicine and engineering is classified as:",
+            options: [
+              "Fardhu Ain binding upon every human being for daily prayer.",
+              "Fardhu Kifayah for civilizational stewardship and guidance.",
+              "Mubah which confers no spiritual merit or afterlife reward.",
+              "A forbidden practice that distracts minds from contemplation."
+            ],
+            correct: 1,
+            expl: "Mastering specialized science, medicine, and technology to steward the Earth is a Fardhu Kifayah communal duty."
+          },
+          {
+            q: "What is the systematic cosmic order established by Allah in nature termed in the Quran?",
+            options: [
+              "Asabiyyah representing the tribal cohesion of desert clans.",
+              "Sunnatullah reflecting consistent natural laws set by Allah.",
+              "Taqlid denoting the uncritical imitation of past scholars.",
+              "Kasbun meaning the active economic acquisition of wealth."
+            ],
+            correct: 1,
+            expl: "Sunnatullah describes the meticulous, dependable cosmic and physical order sustained by Allah."
+          }
+        ]
+      },
+      {
+        id: 2,
+        tier: 'apprentice',
+        name: 'Tawhidic Epistemology & Reason',
+        tag: 'Epistemology',
+        questions: [
+          {
+            q: "Why does Islam reject uncritical imitation (Taqlid) in foundational belief?",
+            options: [
+              "Because human reason is considered higher than all revelation.",
+              "To encourage using reason to recognize the signs of the Creator.",
+              "Because empirical laboratory tests supersede prophetic reports.",
+              "To eliminate all communal obligations and traditional rituals."
+            ],
+            correct: 1,
+            expl: "Islam urges the use of 'Aql (reason) to contemplate creation and arrive at certainty rather than blind imitation (Taqlid)."
+          },
+          {
+            q: "Which three core dimensions constitute the prophetic message revealed to humanity?",
+            options: [
+              "Aqidah for belief, Syariah for behavior, Akhlaq for morals.",
+              "Alchemy for wealth, Astrology for fate, Geometry for land.",
+              "Monarchy for rule, Commerce for trade, Military for conquest.",
+              "Mythology for tales, Rituals for magic, Politics for votes."
+            ],
+            correct: 0,
+            expl: "The prophetic blueprint integrates Aqidah (faith), Syariah (conduct), and Akhlaq (morality)."
+          },
+          {
+            q: "Islamic epistemology divides human sources of knowledge (Insaniyyah) into:",
+            options: [
+              "Superstitions, tribal ancestry tales, and imperial decrees.",
+              "Sensory perception, intellectual reasoning, and experimentation.",
+              "Political laws, corporate mandates, and commercial trade deals.",
+              "Speculative myths, folkloric songs, and personal opinions."
+            ],
+            correct: 1,
+            expl: "Human epistemic faculties comprise Hawas (senses), 'Aql (intellect/reason), and Tajribah (experimentation)."
+          }
+        ]
+      },
+      {
+        id: 3,
+        tier: 'apprentice',
+        name: 'Precision in Time & Astrolabes',
+        tag: 'Astronomy',
+        questions: [
+          {
+            q: "Which astronomer calculated the solar year with an error of only 2 minutes 22 seconds?",
+            options: [
+              "Al-Battani through systematic observations of celestial bodies.",
+              "Galileo Galilei utilizing early glass telescopes in Florence.",
+              "Nicolaus Copernicus while proposing a heliocentric universe.",
+              "Johannes Kepler while calculating elliptical planetary orbits."
+            ],
+            correct: 0,
+            expl: "Al-Battani (Albategnius) calculated the solar year as 365 days, 5 hours, 46 minutes, and 24 seconds."
+          },
+          {
+            q: "How many practical uses for the Astrolabe did Abdul Rahman Al-Sufi document?",
+            options: [
+              "Exactly ten uses strictly limited to determining Qiblah.",
+              "Over one thousand applications across navigation and surveying.",
+              "Only three uses relating exclusively to solar eclipse timing.",
+              "Fifty uses designed entirely for royal court entertainment."
+            ],
+            correct: 1,
+            expl: "Al-Sufi detailed over 1,000 distinct applications for the astrolabe in astronomy, navigation, and timekeeping."
+          },
+          {
+            q: "Why was precision timekeeping crucial in classical Islamic civilization?",
+            options: [
+              "To coordinate commercial shipping voyages across ocean routes.",
+              "To establish prayer times, fasting hours, and lunar calendars.",
+              "To enforce taxation deadlines upon provincial governor houses.",
+              "To schedule theatrical games and military parade assemblies."
+            ],
+            correct: 1,
+            expl: "Precise astronomical calculations ensured accurate prayer times, Ramadan fasting, and calendar synchrony."
+          }
+        ]
+      },
+      {
+        id: 4,
+        tier: 'apprentice',
+        name: 'Cartography & Earth Sciences',
+        tag: 'Geography',
+        questions: [
+          {
+            q: "Which scholar created the famous world map copied for over three centuries?",
+            options: [
+              "Muhammad Al-Idrisi who authored the monumental world atlas.",
+              "Marco Polo upon completing journeys through east Asian ports.",
+              "Ptolemy while compiling classical Greek regional coastlines.",
+              "Ibn Battuta while documenting his travels through North Africa."
+            ],
+            correct: 0,
+            expl: "Al-Idrisi created the authoritative world map copied by cartographers for centuries."
+          },
+          {
+            q: "How did classical Islamic geographers like Al-Idrisi orient their world maps?",
+            options: [
+              "With North placed at the top conforming to modern standards.",
+              "With South placed at the top following classical traditions.",
+              "With East placed at the top pointing toward sunrise horizons.",
+              "With West placed at the top pointing toward Atlantic waters."
+            ],
+            correct: 1,
+            expl: "Classical Islamic cartographers traditionally oriented maps with South at the top."
+          },
+          {
+            q: "What makes the 1513 Piri Reis map famous in cartographic history?",
+            options: [
+              "It was the first map drawn using computer printing devices.",
+              "It is the oldest surviving map depicting American coastlines.",
+              "It completely rejected latitude and longitude degree markers.",
+              "It was drawn exclusively for Roman imperial border patrols."
+            ],
+            correct: 1,
+            expl: "The Piri Reis map is celebrated as the earliest surviving map depicting detailed American coastlines."
+          }
+        ]
+      },
+      {
+        id: 5,
+        tier: 'apprentice',
+        name: 'Naqli & Aqli Harmonization',
+        tag: 'Integration',
+        questions: [
+          {
+            q: "What core methodology defines USIM's educational philosophy?",
+            options: [
+              "Strict separation between scientific study and moral faith.",
+              "Integration of Naqli revelation with rational Aqli inquiry.",
+              "Exclusive concentration on medieval Greek logic treatises.",
+              "Complete rejection of empirical scientific laboratory models."
+            ],
+            correct: 1,
+            expl: "USIM's foundational mission is the harmonious integration of Naqli (revelation) and Aqli (intellect) knowledge."
+          },
+          {
+            q: "How did Imam al-Shafi'i foster intellectual unity in early Islamic jurisprudence?",
+            options: [
+              "He harmonized legal reasoning (Ra'y) with Prophetic reports.",
+              "He banned rational deductions across all legal decision courts.",
+              "He mandated that non-Arab manuscripts be discarded entirely.",
+              "He declared that secular science contradicts divine revelation."
+            ],
+            correct: 0,
+            expl: "Imam al-Shafi'i synthesized the schools of Ahl al-Ra'y (reason) and Ahl al-Hadith (tradition)."
+          },
+          {
+            q: "The Quran presents two complementary signs of divine truth, which are:",
+            options: [
+              "Civil statutes and judicial executive administrative rulings.",
+              "Recited verses (Maqru') and observed cosmic phenomena (Manzur).",
+              "Military conquests and economic treasury account ledgers.",
+              "Poetic metaphors and theoretical abstract algebraic symbols."
+            ],
+            correct: 1,
+            expl: "The Quran reveals signs as Ayat Maqru'ah (scripture) and Ayat Manzurah (observable cosmic phenomena)."
+          }
+        ]
+      },
+      {
+        id: 6,
+        tier: 'specialist',
+        name: 'Optics & The Scientific Method',
+        tag: 'Physics',
+        questions: [
+          {
+            q: "How did Ibn al-Haytham revolutionize optics in Kitab al-Manazir?",
+            options: [
+              "He proved the eye emits rays that illuminate visible targets.",
+              "He proved light reflects from objects into the human observer.",
+              "He argued that color is purely an imaginary internal thought.",
+              "He claimed sight depends on invisible spirit particles in air."
+            ],
+            correct: 1,
+            expl: "Ibn al-Haytham proved the intromission theory: light reflects from physical objects into the eye."
+          },
+          {
+            q: "What experimental apparatus did Ibn al-Haytham build in Cairo?",
+            options: [
+              "The Camera Obscura for projecting inverted optical rays.",
+              "A steam turbine for powering mechanical flour grain mills.",
+              "An electric dynamo for illuminating royal palace pavilions.",
+              "A mercury barometer for calculating atmospheric air heights."
+            ],
+            correct: 0,
+            expl: "Ibn al-Haytham designed the first Camera Obscura (Al-Bayt al-Muthlim) to test optical ray projection."
+          },
+          {
+            q: "Why is Ibn al-Haytham considered the father of the modern scientific method?",
+            options: [
+              "He relied strictly on unverified theoretical deductions.",
+              "He insisted on repeatable experimentation and empirical proof.",
+              "He avoided mathematics and focused purely on moral lectures.",
+              "He rejected all physical observations of natural phenomena."
+            ],
+            correct: 1,
+            expl: "He founded the empirical scientific method through controlled, repeatable experimental verification."
+          }
+        ]
+      },
+      {
+        id: 7,
+        tier: 'specialist',
+        name: 'Relativism vs Absolute Truth',
+        tag: 'Philosophy',
+        questions: [
+          {
+            q: "In classical Athens, which philosophical school claimed all truth is relative?",
+            options: [
+              "The Stoics who emphasized personal self-mastery and duty.",
+              "The Sophists who asserted truth is subjective to observers.",
+              "The Platonists who sought eternal metaphysical forms above.",
+              "The Aristotelians who classified living physical creatures."
+            ],
+            correct: 1,
+            expl: "The Sophists taught epistemological relativism, claiming truth and justice are purely subjective constructs."
+          },
+          {
+            q: "In Islamic metaphysics, what is the ultimate source of Absolute Truth?",
+            options: [
+              "Current societal consensus determined by majority popular vote.",
+              "Allah who is Al-Haqq, the unchanging and eternal reality.",
+              "Commercial market forces established by merchant guild laws.",
+              "Temporary scientific models that change across every century."
+            ],
+            correct: 1,
+            expl: "Absolute Truth resides in Allah Himself, who is Al-Haqq (The Absolute Truth and Ultimate Reality)."
+          },
+          {
+            q: "How did Imam al-Ghazali integrate Greek philosophical tools into Islam?",
+            options: [
+              "He adopted formal Aristotelian logic while critiquing flaws.",
+              "He rejected all mathematics, medicine, and geometry studies.",
+              "He declared that philosophy is the only valid path to faith.",
+              "He banned academic disputation across all Muslim universities."
+            ],
+            correct: 0,
+            expl: "Al-Ghazali critiqued metaphysical errors in Tahafut al-Falasifah while integrating logic into Islamic theology."
+          }
+        ]
+      },
+      {
+        id: 8,
+        tier: 'specialist',
+        name: 'Mechanical Engineering & Clocks',
+        tag: 'Engineering',
+        questions: [
+          {
+            q: "Which mechanical component invented by Al-Jazari is vital to modern engines?",
+            options: [
+              "The silicon microprocessor chip regulating electric currents.",
+              "The crankshaft converting rotary motion to linear movement.",
+              "The vulcanized rubber wheel tread for smooth transport cars.",
+              "The magnetic induction coil generating electrical currents."
+            ],
+            correct: 1,
+            expl: "Al-Jazari invented the crankshaft mechanism, converting rotational motion into reciprocating linear motion."
+          },
+          {
+            q: "What cultural elements were combined in Al-Jazari's iconic Elephant Clock?",
+            options: [
+              "Purely Roman stone pillars with no moving water mechanisms.",
+              "Indian, Arabian, Chinese, and Egyptian intercultural motifs.",
+              "Only Persian motifs powered entirely by gunpowder engines.",
+              "Viking woodcraft powered by wind sails in coastal harbours."
+            ],
+            correct: 1,
+            expl: "The Elephant Clock integrated Indian elephants, Arabian riders, Chinese dragons, and Egyptian phoenix motifs."
+          },
+          {
+            q: "In 875 CE in Cordoba, what daring technological test did Abbas Ibn Firnas conduct?",
+            options: [
+              "He constructed winged apparatus and conducted a glider flight.",
+              "He crossed the Atlantic Ocean aboard a steam-powered ship.",
+              "He built an underwater submersible for inspecting harbor walls.",
+              "He invented an automatic printing press for publishing books."
+            ],
+            correct: 0,
+            expl: "Abbas Ibn Firnas built an artificial wing apparatus and conducted one of history's earliest glider flights."
+          }
+        ]
+      },
+      {
+        id: 9,
+        tier: 'specialist',
+        name: 'Epistemic Virtue & Scientific Trust',
+        tag: 'Ethics',
+        questions: [
+          {
+            q: "In Islamic research conduct, what does the virtue of Sidq demand?",
+            options: [
+              "Fabricating datasets to support approved religious hypotheses.",
+              "Maintaining honesty in data collection, methods, and attribution.",
+              "Hiding discoveries from public welfare to gain private wealth.",
+              "Publishing only conclusions approved by regional governors."
+            ],
+            correct: 1,
+            expl: "Sidq (truthfulness) requires absolute honesty in empirical observations, methodology, and data reporting."
+          },
+          {
+            q: "What does the Islamic concept of Itqan signify in scientific work?",
+            options: [
+              "Producing minimal rushed effort just to obtain certification.",
+              "Meticulous precision and continuous pursuit of excellence.",
+              "Compromising safety standards to achieve commercial speed.",
+              "Copying prior research papers without verifying hypotheses."
+            ],
+            correct: 1,
+            expl: "Itqan represents striving for meticulous precision, thoroughness, and excellence as an act of worship."
+          },
+          {
+            q: "How does the Islamic understanding of productivity differ from pure capitalism?",
+            options: [
+              "It focuses exclusively on maximizing short-term fiscal revenue.",
+              "It incorporates Barakah and societal mercy (Rahmatan lil-Alamin).",
+              "It prohibits accounting ledgers and economic cost tracking.",
+              "It forbids utilizing modern digital technological apparatus."
+            ],
+            correct: 1,
+            expl: "Islamic productivity joins quantitative output with Barakah (divine blessing) and broad societal welfare."
+          }
+        ]
+      },
+      {
+        id: 10,
+        tier: 'specialist',
+        name: 'Chemistry & Pharmaceutical Origins',
+        tag: 'Chemistry',
+        questions: [
+          {
+            q: "Which foundational laboratory chemical acids were discovered by Jabir ibn Hayyan?",
+            options: [
+              "Carbonic and acetic acids found in common fruit vinegars.",
+              "Sulfuric and nitric acids refined through alembic stills.",
+              "Liquid synthetic petroleum fuels for combustion carriages.",
+              "Synthetic plastic polymers manufactured through heat ovens."
+            ],
+            correct: 1,
+            expl: "Jabir ibn Hayyan discovered sulfuric and nitric acids, standardizing crystallization and distillation."
+          },
+          {
+            q: "In the ninth-century text Adab al-Tabib, why were physicians called Hakim?",
+            options: [
+              "Because they demanded high fees from wealthy merchant kings.",
+              "Because they integrated ethical wisdom with clinical expertise.",
+              "Because they were appointed exclusively by military commanders.",
+              "Because they refused treatment to individuals of other faiths."
+            ],
+            correct: 1,
+            expl: "Physicians were called Hakim (the Wise) because they united moral-spiritual wisdom with clinical diagnostic skill."
+          },
+          {
+            q: "What cryptographic method was invented by Yaqub ibn Ishaq al-Kindi?",
+            options: [
+              "Frequency analysis of letters to decode encrypted ciphers.",
+              "Mechanical punch card systems for calculating fiscal ledgers.",
+              "Optical telegraph flash lamps for signalling army garrisons.",
+              "Underwater sonic pulses for communicating between vessels."
+            ],
+            correct: 0,
+            expl: "Al-Kindi invented frequency cryptanalysis, deciphering encrypted ciphers by calculating letter distribution."
+          }
+        ]
+      },
+      {
+        id: 11,
+        tier: 'master',
+        name: 'Medicine, Biology & Bioethics',
+        tag: 'Medicine',
+        questions: [
+          {
+            q: "What contagious epidemic control method was pioneered by Ibn Sina?",
+            options: [
+              "Barber bloodletting using unsterilized metal instruments.",
+              "Al-Arba'iniya, a 40-day isolation protocol creating quarantine.",
+              "Permitting caravans to circulate freely during pestilence.",
+              "Relying entirely on amulets while forbidding medical herbs."
+            ],
+            correct: 1,
+            expl: "Ibn Sina established Al-Arba'iniya (the 40-day isolation protocol), which gave rise to the modern concept of quarantine."
+          },
+          {
+            q: "Why is Abu al-Qasim al-Zahrawi known as the father of modern surgery?",
+            options: [
+              "He invented absorbable catgut sutures and 200 surgical tools.",
+              "He developed the first electronic radiation therapy machines.",
+              "He declared that surgical operations should never be attempted.",
+              "He performed mechanical organ implants in medieval Cordoba."
+            ],
+            correct: 0,
+            expl: "Al-Zahrawi transformed surgical medicine through Kitab al-Tasrif, inventing catgut sutures and specialized instruments."
+          },
+          {
+            q: "Under Islamic bioethics, assisted reproductive technology (IVF) is permitted if:",
+            options: [
+              "Anonymous donor sperm and commercial surrogate mothers are used.",
+              "Procedures use married couples' gametes during valid marriage.",
+              "The child's biological lineage records are completely erased.",
+              "Human cloning is applied to duplicate identical twin infants."
+            ],
+            correct: 1,
+            expl: "IVF is permissible in Islamic jurisprudence only between legally married spouses using their own gametes."
+          }
+        ]
+      },
+      {
+        id: 12,
+        tier: 'master',
+        name: 'Mathematics, Algebra & Cryptography',
+        tag: 'Mathematics',
+        questions: [
+          {
+            q: "What revolutionary arithmetic system did Al-Khwarizmi transmit to Europe?",
+            options: [
+              "The cumbersome Roman numeral notation system using letters.",
+              "The positional decimal number system with the concept of zero.",
+              "Binary punched card code designed for mechanical loom tools.",
+              "Hyperbolic geometric curves for computing planetary orbits."
+            ],
+            correct: 1,
+            expl: "Al-Khwarizmi transmitted the Hindu-Arabic positional decimal system and operational zero to the West."
+          },
+          {
+            q: "How did Al-Biruni measure the circumference of the Earth with under 1% error?",
+            options: [
+              "By pacing the perimeter of the globe on camel back tracks.",
+              "By calculating the horizon dip angle from a mountain summit.",
+              "By measuring shadows cast in deep water wells across Egypt.",
+              "By consulting ancient Greek mythology poetry books in Rome."
+            ],
+            correct: 1,
+            expl: "Al-Biruni used an astrolabe from a mountain summit to measure horizon dip, solving Earth's radius trigonometrically."
+          },
+          {
+            q: "Why did Al-Khwarizmi develop the discipline of Algebra (Al-Jabr)?",
+            options: [
+              "To solve legal inheritance shares, land surveys, and commerce.",
+              "To manufacture military weapon catapults for border garrisons.",
+              "To create astrological horoscope predictions for royal rulers.",
+              "To compute taxation penalties against foreign merchant vessels."
+            ],
+            correct: 0,
+            expl: "Al-Khwarizmi formulated algebra to solve practical Islamic legal inheritance (Faraid), trade, and surveying needs."
+          }
+        ]
+      },
+      {
+        id: 13,
+        tier: 'master',
+        name: 'Ecclesiastical Conflict & Secularization',
+        tag: 'History',
+        questions: [
+          {
+            q: "What role did the 12th-century Toledo translation movement play in Europe?",
+            options: [
+              "It translated Arabic scientific manuscripts into Latin texts.",
+              "It ordered the burning of ancient classical Greek treatises.",
+              "It established papal inquisitions across northern territories.",
+              "It outlawed Arabic mathematics across Christian merchant cities."
+            ],
+            correct: 0,
+            expl: "The Toledo movement translated Arabic scientific works into Latin, catalyzing the European Renaissance."
+          },
+          {
+            q: "Why was astronomer Galileo Galilei tried by the Roman Inquisition in 1633?",
+            options: [
+              "For arguing that the Earth orbits the Sun against church views.",
+              "For translating the Arabic Quran into modern Italian dialects.",
+              "For inventing water clocks that violated regional bell guilds.",
+              "For teaching mathematics without imperial university permits."
+            ],
+            correct: 0,
+            expl: "Galileo was condemned for defending Copernican heliocentrism, which contradicted literal biblical interpretations."
+          },
+          {
+            q: "What European treaty in 1648 marked the political shift toward secular governance?",
+            options: [
+              "The Magna Carta establishing constitutional monarch boundaries.",
+              "The Peace of Westphalia ending prolonged religious warfare.",
+              "The Treaty of Versailles reorganizing continental boundaries.",
+              "The Council of Trent reorganizing ecclesiastical hierarchies."
+            ],
+            correct: 1,
+            expl: "The Peace of Westphalia (1648) laid the foundation for modern secular statecraft after brutal religious warfare."
+          }
+        ]
+      },
+      {
+        id: 14,
+        tier: 'master',
+        name: 'Classification of Sciences & Maqasid',
+        tag: 'Classification',
+        questions: [
+          {
+            q: "What pioneer institution was founded by Fatima al-Fihri in Fez in 859 CE?",
+            options: [
+              "The University of Al-Qarawiyyin as a degree-granting center.",
+              "The House of Wisdom dedicated exclusively to book copying.",
+              "The Imperial Observatory of Maragha for charting stars.",
+              "The medical Bimaristan hospital of Damascus in ancient Syria."
+            ],
+            correct: 0,
+            expl: "Fatima al-Fihri founded the University of Al-Qarawiyyin, recognized by UNESCO as the oldest continuously operating university."
+          },
+          {
+            q: "In the Muqaddimah, what science of human civilization was founded by Ibn Khaldun?",
+            options: [
+              "'Ilm al-Umran analyzing social cohesion and dynastic change.",
+              "Astrology calculating royal horoscopes for reigning sultans.",
+              "Maritime cartography charting deep Atlantic navigation lanes.",
+              "Military fortification engineering for defending border towns."
+            ],
+            correct: 0,
+            expl: "Ibn Khaldun founded 'Ilm al-Umran (sociology and human civilization), examining Asabiyyah and historical cycles."
+          },
+          {
+            q: "Why did Muslim scholars classify sciences into distinct academic branches?",
+            options: [
+              "To clarify epistemic methods while keeping all under Tawhid.",
+              "To isolate secular scientists from spiritual religious life.",
+              "To declare empirical sciences contrary to prophetic tradition.",
+              "To ban philosophical books from public library collections."
+            ],
+            correct: 0,
+            expl: "Classification clarified origins and methods while keeping all knowledge unified under the Tawhidic paradigm."
+          }
+        ]
+      },
+      {
+        id: 15,
+        tier: 'master',
+        name: 'Futures Studies & Postnormal Foresight',
+        tag: 'Futures',
+        questions: [
+          {
+            q: "In Futures Studies (ISFAR 2.0), what does a 'Used Future' describe?",
+            options: [
+              "Recycling laboratory equipment to reduce university expense.",
+              "Uncritically adopting another civilization's goals and paths.",
+              "Studying ancient history to memorize past dynastic lineages.",
+              "Developing software code that was previously run on servers."
+            ],
+            correct: 1,
+            expl: "Prof. Sohail Inayatullah defines a 'Used Future' as unconsciously borrowing foreign models that do not match authentic values."
+          },
+          {
+            q: "What is the primary function of the Futures Wheel (Roda Masa Hadapan)?",
+            options: [
+              "Measuring the rotational velocity of orbiting outer planets.",
+              "Mapping multi-order impacts and ethical consequences of change.",
+              "Calculating annual fiscal tax revenues for federal bureaus.",
+              "Operating water wheels for agricultural irrigation canals."
+            ],
+            correct: 1,
+            expl: "The Futures Wheel maps out first, second, and third-order systemic consequences of emerging technologies."
+          },
+          {
+            q: "Why is Tawhidic epistemology vital when confronting 21st-century megatrends?",
+            options: [
+              "It isolates Muslim scientists from international conferences.",
+              "It anchors progress in moral accountability (Amanah) and balance.",
+              "It replaces empirical laboratory experiments with oral debate.",
+              "It forbids adopting any digital software in university courses."
+            ],
+            correct: 1,
+            expl: "A Tawhidic framework ensures technical innovation remains accountable to divine trust (Amanah) and cosmic balance (Mizan)."
+          }
+        ]
+      }
+    ];
+
+    // ==========================================
+    // ONBOARDING & DASHBOARD NAVIGATION
+    // ==========================================
+    function startGameOnboarding() {
+      const nameInput = document.getElementById('reg-student-name').value.trim();
+      const classSelect = document.getElementById('reg-student-class').value;
+      const matricInput = document.getElementById('reg-student-matric').value.trim();
+
+      if (!nameInput) {
+        alert("Please enter your Student Full Name.");
+        return;
+      }
+      if (!classSelect) {
+        alert("Please select your Class Section (KMB12, KBB, FEM1, KSBKSD, KSF).");
+        return;
+      }
+      if (!matricInput) {
+        alert("Please enter your Matric ID.");
+        return;
+      }
+
+      state.username = nameInput;
+      state.studentClass = classSelect;
+      state.matricNumber = matricInput;
+
+      document.getElementById('hud-scholar-name').innerText = state.username;
+      document.getElementById('hud-scholar-class').innerText = state.studentClass;
+
+      document.getElementById('hero-screen').classList.add('hidden');
+      renderChamberGrid();
+      updateStatsUI();
+      lucide.createIcons();
+    }
+
+    function switchScreen(screenName) {
+      document.getElementById('screen-rooms').classList.add('hidden');
+      document.getElementById('screen-quiz').classList.add('hidden');
+      document.getElementById('screen-boss').classList.add('hidden');
+
+      if (screenName === 'rooms') {
+        document.getElementById('screen-rooms').classList.remove('hidden');
+        renderChamberGrid();
+      } else if (screenName === 'quiz') {
+        document.getElementById('screen-quiz').classList.remove('hidden');
+      } else if (screenName === 'boss') {
+        document.getElementById('screen-boss').classList.remove('hidden');
+      }
+
+      lucide.createIcons();
+    }
+
+    function setTierFilter(tier) {
+      state.currentTier = tier;
+
+      ['apprentice', 'specialist', 'master'].forEach(t => {
+        const btn = document.getElementById(`tier-btn-${t}`);
+        if (t === tier) {
+          btn.className = "flex-1 py-2 text-xs font-bold rounded-lg border border-amber-400 bg-amber-500/30 text-amber-200 shadow transition";
+        } else {
+          btn.className = "flex-1 py-2 text-xs font-bold rounded-lg border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:border-amber-400 transition";
+        }
+      });
+
+      const heading = document.getElementById('current-tier-heading');
+      const badge = document.getElementById('hud-tier-badge');
+      if (tier === 'apprentice') {
+        heading.innerText = "Tier I: Apprentice Scholar Chambers (Chambers 1 - 5)";
+        badge.innerText = "Apprentice";
+      } else if (tier === 'specialist') {
+        heading.innerText = "Tier II: Specialist Polymath Chambers (Chambers 6 - 10)";
+        badge.innerText = "Specialist";
+      } else {
+        heading.innerText = "Tier III: Master Sage Chambers (Chambers 11 - 15)";
+        badge.innerText = "Master";
+      }
+
+      renderChamberGrid();
+      lucide.createIcons();
+    }
+
+    function renderChamberGrid() {
+      const container = document.getElementById('rooms-container');
+      container.innerHTML = "";
+
+      const filtered = CHAMBER_CURRICULUM.filter(r => r.tier === state.currentTier);
+
+      filtered.forEach(room => {
+        const isMastered = state.solvedRooms.has(room.id);
+        const isCurrentActive = (room.id === state.currentProgressStep);
+        const isPast = (room.id < state.currentProgressStep);
+        const isFutureLocked = (room.id > state.currentProgressStep);
+
+        const card = document.createElement('div');
+
+        if (isMastered || isPast) {
+          // Completed Chamber: Displays Done and is non-clickable (strict forward path)
+          card.className = "p-3.5 rounded-xl border border-emerald-500/40 bg-slate-950/70 opacity-70 flex items-center justify-between shadow-sm cursor-not-allowed";
+          card.innerHTML = `
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-emerald-950/80 border border-emerald-500/60 flex items-center justify-center text-emerald-300 font-bold font-mono text-sm">
+                ${room.id}
+              </div>
+              <div>
+                <span class="text-[9px] uppercase tracking-wider font-bold text-emerald-400 font-mono">${room.tag}</span>
+                <h4 class="text-xs font-bold text-slate-200">${room.name}</h4>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950/80 border border-emerald-500/60 text-emerald-300 flex items-center gap-1">
+              <i data-lucide="check" class="w-3 h-3 text-emerald-400"></i> Done
+            </span>
+          `;
+        } else if (isCurrentActive) {
+          // Current Active Chamber: Glowing and clickable
+          card.className = "p-3.5 rounded-xl border-2 border-amber-400 bg-gradient-to-r from-amber-950/40 via-slate-900/90 to-amber-950/30 flex items-center justify-between shadow-xl shadow-amber-950/50 cursor-pointer transform hover:scale-[1.01] transition";
+          card.onclick = () => openChamberQuiz(room.id);
+          card.innerHTML = `
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-amber-500/30 border border-amber-300 flex items-center justify-center text-yellow-300 font-bold font-mono text-sm animate-pulse">
+                ${room.id}
+              </div>
+              <div>
+                <span class="text-[9px] uppercase tracking-wider font-bold text-amber-300 font-mono">${room.tag}</span>
+                <h4 class="text-xs font-bold text-white">${room.name}</h4>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 rounded text-[10px] font-bold bg-amber-400 text-slate-950 uppercase tracking-wider flex items-center gap-1 shadow-md">
+              <span>Enter</span>
+              <i data-lucide="arrow-right" class="w-3 h-3 text-slate-950"></i>
+            </span>
+          `;
+        } else {
+          // Future Chamber: Locked
+          card.className = "p-3.5 rounded-xl border border-slate-800 bg-slate-950/50 opacity-40 flex items-center justify-between cursor-not-allowed";
+          card.innerHTML = `
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600 font-bold font-mono text-sm">
+                ${room.id}
+              </div>
+              <div>
+                <span class="text-[9px] uppercase tracking-wider font-bold text-slate-600 font-mono">${room.tag}</span>
+                <h4 class="text-xs font-bold text-slate-500">${room.name}</h4>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold text-slate-500 bg-slate-900 border border-slate-800 flex items-center gap-1">
+              <i data-lucide="lock" class="w-3 h-3 text-slate-600"></i> Locked
+            </span>
+          `;
+        }
+
+        container.appendChild(card);
+      });
+
+      // Update Boss Challenge Button in Header
+      const bossBtn = document.getElementById('boss-challenge-btn');
+      const bossLabel = document.getElementById('boss-challenge-label');
+
+      if (state.unlockedArtifacts.size >= 7) {
+        bossBtn.className = "px-3.5 py-1.5 rounded-lg bg-emerald-500 border border-emerald-300 text-slate-950 font-black text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-950/40 cursor-pointer";
+        bossBtn.disabled = false;
+        bossLabel.innerText = "All Relics Forged";
+      } else if (state.currentProgressStep >= 4) {
+        bossBtn.className = "px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 border border-amber-300 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-amber-950/40 cursor-pointer transition";
+        bossBtn.disabled = false;
+        bossLabel.innerText = "Play Relic Riddle";
+      } else {
+        bossBtn.className = "px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-400 font-bold text-xs flex items-center gap-1.5 cursor-not-allowed opacity-60 shadow";
+        bossBtn.disabled = true;
+        bossLabel.innerText = "Relic Riddle (Chamber 3)";
+      }
+
+      lucide.createIcons();
+    }
+
+    // ==========================================
+    // INSTRUCTOR SETTINGS
+    // ==========================================
+    function toggleConfigModal() {
+      const modal = document.getElementById('config-modal');
+      modal.classList.toggle('hidden');
+      document.getElementById('config-script-url').value = state.scriptUrl;
+    }
+
+    function saveEndpointConfig() {
+      const val = document.getElementById('config-script-url').value.trim();
+      state.scriptUrl = val;
+      localStorage.setItem("hOW_backend_url", val);
+      alert("Configuration updated and stored.");
+      toggleConfigModal();
+    }
+
+    // ==========================================
+    // LOGOUT & GAME RESET LOGIC
+    // ==========================================
+    function promptLogoutReset() {
+      document.getElementById('reset-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeLogoutResetModal() {
+      document.getElementById('reset-modal').classList.add('hidden');
+    }
+
+    function confirmLogoutReset() {
+      // 1. Clear intervals
+      clearInterval(state.questionTimer);
+
+      // 2. Reset student state
+      state.username = "";
+      state.studentClass = "";
+      state.matricNumber = "";
+      state.xp = 0;
+      state.currentTier = "apprentice";
+      state.currentProgressStep = 1;
+      state.activeRoomId = null;
+      state.currentQuestions = [];
+      state.questionIndex = 0;
+      state.selectedOptionIndex = null;
+      state.answeredCurrent = false;
+      state.solvedRooms.clear();
+      state.unlockedArtifacts.clear();
+      state.gradedAttempted = 0;
+      state.gradedCorrect = 0;
+      state.relicReqPending = null;
+      state.algebraAnswer = null;
+      state.currentViewingRelic = null;
+      state.astrolabe.angle = 18;
+
+      // 3. Reset form inputs
+      document.getElementById('reg-student-name').value = "";
+      document.getElementById('reg-student-class').value = "";
+      document.getElementById('reg-student-matric').value = "";
+
+      // 4. Reset HUD & Artifact cards
+      document.getElementById('hud-scholar-name').innerText = "Guest Scholar";
+      document.getElementById('hud-scholar-class').innerText = "N/A";
+      document.getElementById('hud-timer-container').classList.add('hidden');
+      document.getElementById('artifact-unlocked-count').innerText = "0 / 7";
+
+      ['astrolabe', 'camera', 'clock', 'alembic', 'canon', 'algebra', 'amanah'].forEach(id => {
+        const el = document.getElementById(`art-${id}`);
+        if (el) {
+          el.className = (id === 'amanah') 
+            ? "col-span-2 p-2.5 rounded-lg border border-slate-700 bg-slate-900/70 flex items-center gap-2 opacity-50 transition cursor-not-allowed"
+            : "p-2.5 rounded-lg border border-slate-700 bg-slate-900/70 flex items-center gap-2 opacity-50 transition cursor-not-allowed";
+        }
+      });
+
+      // 5. Hide modals and show onboarding hero screen
+      closeLogoutResetModal();
+      document.getElementById('screen-quiz').classList.add('hidden');
+      document.getElementById('screen-boss').classList.add('hidden');
+      document.getElementById('screen-rooms').classList.remove('hidden');
+      document.getElementById('survey-modal').classList.add('hidden');
+      document.getElementById('achievements-modal').classList.add('hidden');
+      document.getElementById('relic-badge-modal').classList.add('hidden');
+      document.getElementById('hero-screen').classList.remove('hidden');
+
+      setTierFilter('apprentice');
+      updateStatsUI();
+      lucide.createIcons();
+    }
+
+    // ==========================================
+    // INITIALIZATION ON LOAD
+    // ==========================================
+    window.onload = function() {
+      lucide.createIcons();
+      updateAlidadeAngle(18);
+    };
+
+    // ==========================================
+    // QUIZ SYSTEM LOGIC (WITH RANDOMIZATION & TIMER)
+    // ==========================================
+    function openChamberQuiz(roomId) {
+      const room = CHAMBER_CURRICULUM.find(r => r.id === roomId);
+      if (!room) return;
+
+      state.activeRoomId = roomId;
+
+      // ANTI-CHEAT RANDOMIZATION:
+      // 1. Shuffle order of questions for this session
+      // 2. Shuffle options inside each question and update the correct index
+      const randomizedQuestions = shuffleArray(room.questions).map(origQ => {
+        const correctText = origQ.options[origQ.correct];
+        const shuffledOptions = shuffleArray(origQ.options);
+        const newCorrectIndex = shuffledOptions.indexOf(correctText);
+
+        return {
+          q: origQ.q,
+          options: shuffledOptions,
+          correct: newCorrectIndex,
+          expl: origQ.expl
+        };
+      });
+
+      state.currentQuestions = randomizedQuestions;
+      state.questionIndex = 0;
+      state.selectedOptionIndex = null;
+      state.answeredCurrent = false;
+
+      document.getElementById('quiz-room-tag').innerText = `${room.tag} • Chamber ${room.id}`;
+      document.getElementById('hud-timer-container').classList.remove('hidden');
+      switchScreen('quiz');
+      renderCurrentQuestion();
+    }
+
+    function renderCurrentQuestion() {
+      // Clear any running timer
+      clearInterval(state.questionTimer);
+
+      state.selectedOptionIndex = null;
+      state.answeredCurrent = false;
+      state.timeLeft = 60;
+      updateTimerDisplay();
+
+      const qObj = state.currentQuestions[state.questionIndex];
+      document.getElementById('quiz-question-counter').innerText = `Question ${state.questionIndex + 1} of ${state.currentQuestions.length}`;
+      document.getElementById('quiz-question-text').innerText = qObj.q;
+
+      // Reset feedback box
+      const fbBox = document.getElementById('quiz-feedback-box');
+      fbBox.className = "hidden p-3 rounded-lg border text-xs leading-relaxed";
+      fbBox.innerHTML = "";
+
+      // Render randomized options
+      const container = document.getElementById('quiz-options-container');
+      container.innerHTML = "";
+
+      qObj.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.id = `quiz-opt-${idx}`;
+        btn.className = "w-full text-left p-3 rounded-lg border-2 border-slate-700 bg-slate-900/90 hover:bg-slate-800/90 hover:border-amber-400 text-xs text-white font-medium transition flex items-center gap-3 shadow-sm";
+        btn.onclick = () => selectOption(idx);
+        btn.innerHTML = `
+          <span class="w-6 h-6 rounded-md bg-slate-950 border border-slate-600 flex items-center justify-center font-mono font-bold text-xs text-amber-300 flex-shrink-0 shadow-inner">
+            ${String.fromCharCode(65 + idx)}
+          </span>
+          <span class="leading-relaxed">${optText}</span>
+        `;
+        container.appendChild(btn);
+      });
+
+      // Reset Next button state
+      const nextBtn = document.getElementById('quiz-next-btn');
+      nextBtn.innerHTML = `<span>Check Answer</span><i data-lucide="crosshair" class="w-3.5 h-3.5"></i>`;
+      lucide.createIcons();
+
+      // Start Countdown Timer
+      state.questionTimer = setInterval(() => {
+        if (state.answeredCurrent) {
+          clearInterval(state.questionTimer);
+          return;
+        }
+
+        state.timeLeft--;
+        updateTimerDisplay();
+
+        if (state.timeLeft <= 0) {
+          clearInterval(state.questionTimer);
+          handleTimeExpired();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const timeStr = `${state.timeLeft}s`;
+      const quizTimer = document.getElementById('quiz-timer-text');
+      const hudTimer = document.getElementById('hud-timer-display');
+
+      if (quizTimer) quizTimer.innerText = timeStr;
+      if (hudTimer) hudTimer.innerText = timeStr;
+
+      // Visual urgency pulse when below 15s
+      if (state.timeLeft <= 15) {
+        if (quizTimer) quizTimer.parentElement.className = "flex items-center gap-1 bg-red-950/80 border border-red-500 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold text-red-300 animate-pulse";
+        if (hudTimer) hudTimer.className = "font-bold text-red-400 animate-pulse";
+      } else {
+        if (quizTimer) quizTimer.parentElement.className = "flex items-center gap-1 bg-amber-950/60 border border-amber-500/50 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold text-amber-300";
+        if (hudTimer) hudTimer.className = "font-bold text-yellow-300";
+      }
+    }
+
+    function handleTimeExpired() {
+      if (state.answeredCurrent) return;
+
+      // Auto check answer or mark incorrect if unanswered
+      if (state.selectedOptionIndex === null) {
+        state.selectedOptionIndex = -1; // No option picked in time
+      }
+      submitOrNextQuestion();
+    }
+
+    function selectOption(idx) {
+      if (state.answeredCurrent) return;
+      state.selectedOptionIndex = idx;
+
+      for (let i = 0; i < 4; i++) {
+        const btn = document.getElementById(`quiz-opt-${i}`);
+        if (!btn) continue;
+        if (i === idx) {
+          btn.className = "w-full text-left p-3 rounded-lg border-2 border-amber-400 bg-amber-500/25 text-xs text-amber-100 font-bold transition flex items-center gap-3 shadow-md shadow-amber-500/20";
+        } else {
+          btn.className = "w-full text-left p-3 rounded-lg border-2 border-slate-700 bg-slate-900/90 text-xs text-white font-medium transition flex items-center gap-3";
+        }
+      }
+    }
+
+    function submitOrNextQuestion() {
+      // Step A: Checking Answer
+      if (!state.answeredCurrent) {
+        clearInterval(state.questionTimer);
+
+        if (state.selectedOptionIndex === null) {
+          alert("Please select an answer choice before confirming.");
+          return;
+        }
+
+        state.answeredCurrent = true;
+        const qObj = state.currentQuestions[state.questionIndex];
+        const isCorrect = (state.selectedOptionIndex === qObj.correct);
+
+        state.gradedAttempted++;
+        if (isCorrect) {
+          state.gradedCorrect++;
+          state.xp += 100;
+        }
+
+        // Show feedback
+        const fbBox = document.getElementById('quiz-feedback-box');
+        fbBox.classList.remove('hidden');
+        if (isCorrect) {
+          fbBox.className = "p-3.5 rounded-lg border-2 border-emerald-400 bg-emerald-950/80 text-emerald-100 text-xs leading-relaxed font-medium shadow-lg";
+          fbBox.innerHTML = `<strong class="text-emerald-300 text-sm block mb-0.5">Correct!</strong> ${qObj.expl}`;
+          if (state.selectedOptionIndex >= 0) {
+            document.getElementById(`quiz-opt-${state.selectedOptionIndex}`).className = "w-full text-left p-3 rounded-lg border-2 border-emerald-400 bg-emerald-500/30 text-xs text-emerald-100 font-bold transition flex items-center gap-3 shadow-md";
+          }
+        } else {
+          fbBox.className = "p-3.5 rounded-lg border-2 border-red-400 bg-red-950/80 text-red-100 text-xs leading-relaxed font-medium shadow-lg";
+          const timeoutNotice = (state.selectedOptionIndex === -1) ? "<span class='text-amber-300 font-bold block mb-1'>⌛ Time Expired!</span>" : "";
+          fbBox.innerHTML = `${timeoutNotice}<strong class="text-red-300 text-sm block mb-0.5">Incorrect.</strong> ${qObj.expl}`;
+          if (state.selectedOptionIndex >= 0) {
+            document.getElementById(`quiz-opt-${state.selectedOptionIndex}`).className = "w-full text-left p-3 rounded-lg border-2 border-red-400 bg-red-500/30 text-xs text-red-100 font-bold transition flex items-center gap-3 shadow-md";
+          }
+          document.getElementById(`quiz-opt-${qObj.correct}`).className = "w-full text-left p-3 rounded-lg border-2 border-emerald-400 bg-emerald-500/20 text-xs text-emerald-200 font-bold transition flex items-center gap-3 shadow-md";
+        }
+
+        updateStatsUI();
+
+        // Update button to Next
+        const nextBtn = document.getElementById('quiz-next-btn');
+        if (state.questionIndex + 1 < state.currentQuestions.length) {
+          nextBtn.innerHTML = `<span>Next Question</span><i data-lucide="chevron-right" class="w-4 h-4"></i>`;
+        } else {
+          nextBtn.innerHTML = `<span>Complete Chamber</span><i data-lucide="award" class="w-4 h-4"></i>`;
+        }
+        lucide.createIcons();
+        return;
+      }
+
+      // Step B: Advancing
+      if (state.questionIndex + 1 < state.currentQuestions.length) {
+        state.questionIndex++;
+        renderCurrentQuestion();
+      } else {
+        clearInterval(state.questionTimer);
+        document.getElementById('hud-timer-container').classList.add('hidden');
+
+        // Chamber Solved
+        state.solvedRooms.add(state.activeRoomId);
+        
+        // Advance linear progress step if this was the current chamber
+        if (state.activeRoomId === state.currentProgressStep) {
+          state.currentProgressStep++;
+        }
+
+        // Auto-switch tier if finished tier 1 or 2
+        if (state.currentProgressStep === 6 && state.currentTier === 'apprentice') {
+          setTierFilter('specialist');
+        } else if (state.currentProgressStep === 11 && state.currentTier === 'specialist') {
+          setTierFilter('master');
+        }
+
+        updateStatsUI();
+
+        // Check if completing this chamber triggers a Sacred Relic Boss Riddle
+        const bossRiddleKey = getRelicBossKeyForChamber(state.activeRoomId);
+        if (bossRiddleKey && !state.unlockedArtifacts.has(bossRiddleKey)) {
+          alert(`Chamber ${state.activeRoomId} conquered! To claim the sacred Relic Badge "${RELIC_DETAILS[bossRiddleKey].name}", you must now solve its historical mechanism riddle!`);
+          openBossRiddleForRelic(bossRiddleKey);
+        } else {
+          alert(`Chamber ${state.activeRoomId} Mastered! Your path moves forward to Chamber ${state.currentProgressStep}.`);
+          switchScreen('rooms');
+        }
+      }
+    }
+
+    function getRelicBossKeyForChamber(chamberId) {
+      if (chamberId === 3) return 'astrolabe';
+      if (chamberId === 6) return 'camera';
+      if (chamberId === 8) return 'clock';
+      if (chamberId === 10) return 'alembic';
+      if (chamberId === 11) return 'canon';
+      if (chamberId === 12) return 'algebra';
+      if (chamberId === 15) return 'amanah';
+      return null;
+    }
+
+    function unlockArtifact(id) {
+      state.unlockedArtifacts.add(id);
+      const el = document.getElementById(`art-${id}`);
+      if (el) {
+        el.classList.remove('opacity-40', 'cursor-not-allowed');
+        el.classList.add('border-amber-500/80', 'text-amber-300', 'bg-amber-950/20', 'cursor-pointer', 'hover:border-amber-400');
+      }
+      document.getElementById('artifact-unlocked-count').innerText = `${state.unlockedArtifacts.size} / 7`;
+    }
+
+    // ==========================================
+    // MULTI-BOSS INTERACTIVE RIDDLE CONTROLLER
+    // ==========================================
+    function openBossRiddleForRelic(relicKey) {
+      state.relicReqPending = relicKey;
+      const relic = RELIC_DETAILS[relicKey];
+
+      switchScreen('boss');
+      document.getElementById('boss-title').innerText = `${relic.name} Riddle Trial`;
+      document.getElementById('boss-prompt').innerText = `You have proven your academic knowledge in Chamber ${relic.chamberReq}. Now, demonstrate your practical mastery of this classical mechanism to forge the ${relic.name} and unlock your downloadable badge!`;
+      document.getElementById('boss-feedback-box').classList.add('hidden');
+
+      // Hide all puzzle views
+      ['astrolabe', 'camera', 'clock', 'alembic', 'canon', 'algebra', 'amanah'].forEach(k => {
+        const el = document.getElementById(`boss-game-${k}`);
+        if (el) {
+          el.classList.add('hidden');
+          el.classList.remove('flex');
+        }
+      });
+
+      // Show active puzzle
+      const activePuzzle = document.getElementById(`boss-game-${relicKey}`);
+      if (activePuzzle) {
+        activePuzzle.classList.remove('hidden');
+        activePuzzle.classList.add('flex');
+      }
+
+      // Initialize specific puzzle states
+      if (relicKey === 'astrolabe') {
+        updateAlidadeAngle(18);
+      } else if (relicKey === 'camera') {
+        updateCameraFocus(35);
+      } else if (relicKey === 'clock') {
+        updateClockEscapement(25);
+      } else if (relicKey === 'alembic') {
+        updateAlembicTemp(45);
+      } else if (relicKey === 'amanah') {
+        updateAmanahHarmonization(50);
+      }
+
+      lucide.createIcons();
+    }
+
+    // Launch Boss from Map Header Button
+    function launchBossChallenge() {
+      // Find the next available unearned relic boss that has been unlocked
+      let targetBoss = 'astrolabe';
+      if (state.currentProgressStep >= 15 && !state.unlockedArtifacts.has('amanah')) targetBoss = 'amanah';
+      else if (state.currentProgressStep >= 12 && !state.unlockedArtifacts.has('algebra')) targetBoss = 'algebra';
+      else if (state.currentProgressStep >= 11 && !state.unlockedArtifacts.has('canon')) targetBoss = 'canon';
+      else if (state.currentProgressStep >= 10 && !state.unlockedArtifacts.has('alembic')) targetBoss = 'alembic';
+      else if (state.currentProgressStep >= 8 && !state.unlockedArtifacts.has('clock')) targetBoss = 'clock';
+      else if (state.currentProgressStep >= 6 && !state.unlockedArtifacts.has('camera')) targetBoss = 'camera';
+      else targetBoss = 'astrolabe';
+
+      openBossRiddleForRelic(targetBoss);
+    }
+
+    // 1. ASTROLABE (Chamber 3)
+    function stepAlidade(delta) {
+      let next = Math.max(0, Math.min(90, state.astrolabe.angle + delta));
+      updateAlidadeAngle(next);
+    }
+
+    function updateAlidadeAngle(val) {
+      state.astrolabe.angle = parseInt(val, 10);
+      const angle = state.astrolabe.angle;
+      const target = state.astrolabe.target;
+
+      document.getElementById('astrolabe-angle-display').innerText = `${angle}°`;
+      document.getElementById('astrolabe-slider').value = angle;
+
+      const arm = document.getElementById('astrolabe-alidade-arm');
+      if (arm) arm.setAttribute('transform', `rotate(${-angle} 160 118)`);
+
+      const diff = Math.abs(angle - target);
+      const statusBadge = document.getElementById('astrolabe-status-tag');
+      const throughBeam = document.getElementById('solar-through-beam');
+      const focalSpot = document.getElementById('solar-focal-spot');
+
+      if (diff === 0) {
+        statusBadge.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-emerald-950 border border-emerald-500 text-emerald-300 animate-pulse";
+        statusBadge.innerText = "ALIGNED WITH PINHOLES (52°)";
+        if (throughBeam) throughBeam.setAttribute('opacity', '1');
+        if (focalSpot) focalSpot.setAttribute('opacity', '1');
+      } else if (diff <= 2) {
+        statusBadge.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-amber-950 border border-amber-500 text-amber-300";
+        statusBadge.innerText = "GRAZING SIGHT APERTURE";
+        if (throughBeam) throughBeam.setAttribute('opacity', '0.4');
+        if (focalSpot) focalSpot.setAttribute('opacity', '0.4');
+      } else {
+        statusBadge.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-red-950 border border-red-500/40 text-red-400";
+        statusBadge.innerText = "RAY BLOCKED BY VANE";
+        if (throughBeam) throughBeam.setAttribute('opacity', '0');
+        if (focalSpot) focalSpot.setAttribute('opacity', '0');
+      }
+    }
+
+    function verifyAstrolabeSighting() {
+      if (state.astrolabe.angle === state.astrolabe.target) {
+        onBossRiddleVictory('astrolabe', "Solar Altitude Verified at 52°! The sunlight streamed cleanly through both pinholes of the Alidade.");
+      } else {
+        alert(`The solar ray is striking the bronze plate of the sight vane. Adjust the Alidade until its pointer matches the Sun's true elevation (52°). Current angle: ${state.astrolabe.angle}°.`);
+      }
+    }
+
+    // 2. CAMERA OBSCURA (Chamber 6)
+    function updateCameraFocus(val) {
+      val = parseInt(val, 10);
+      document.getElementById('camera-slider-val').innerText = `${val}mm`;
+      const screenImg = document.getElementById('camera-inverted-img');
+      const tag = document.getElementById('camera-status-tag');
+      const readout = document.getElementById('camera-focus-readout');
+
+      const diff = Math.abs(val - 72);
+      if (diff === 0) {
+        screenImg.style.filter = "blur(0px)";
+        screenImg.style.opacity = "1";
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-emerald-950 border border-emerald-500 text-emerald-300 animate-pulse";
+        tag.innerText = "PERFECT INVERSION (SHARP)";
+        readout.innerText = "Focus: 100% SHARP";
+      } else if (diff <= 8) {
+        screenImg.style.filter = "blur(2px)";
+        screenImg.style.opacity = "0.7";
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-amber-950 border border-amber-500 text-amber-300";
+        tag.innerText = "SLIGHTLY BLURRED";
+        readout.innerText = `Focus: ${100 - diff * 8}%`;
+      } else {
+        screenImg.style.filter = "blur(6px)";
+        screenImg.style.opacity = "0.3";
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-red-950 border border-red-500/40 text-red-400";
+        tag.innerText = "DIFFUSE (BLUR)";
+        readout.innerText = "Focus: LOW";
+      }
+    }
+
+    function verifyCameraObscura() {
+      const val = parseInt(document.getElementById('camera-slider').value, 10);
+      if (val === 72) {
+        onBossRiddleVictory('camera', "Ibn al-Haytham's Optics Proven! Inverted light rays focus with surgical sharpness on the dark chamber screen.");
+      } else {
+        alert("The projected image is still blurry! Adjust the pinhole diameter slider until the inverted candle flame is 100% sharp (72mm).");
+      }
+    }
+
+    // 3. ELEPHANT ESCAPEMENT (Chamber 8)
+    function updateClockEscapement(val) {
+      val = parseInt(val, 10);
+      document.getElementById('clock-slider-val').innerText = `${val}s`;
+      document.getElementById('clock-water-fill').style.height = `${(val / 90) * 100}%`;
+      document.getElementById('clock-float-bowl').style.bottom = `${Math.max(10, 80 - (val / 90) * 70)}%`;
+
+      const tag = document.getElementById('clock-status-tag');
+      if (val === 60) {
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-emerald-950 border border-emerald-500 text-emerald-300 animate-pulse";
+        tag.innerText = "PERFECT 60s INTERVAL";
+      } else {
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-amber-950 border border-amber-500 text-amber-300";
+        tag.innerText = `FLOWING (${val}s)`;
+      }
+    }
+
+    function verifyClockEscapement() {
+      const val = parseInt(document.getElementById('clock-slider').value, 10);
+      if (val === 60) {
+        onBossRiddleVictory('clock', "Gong Struck! The submerged perforated bowl sinks exactly at 60 seconds, releasing the falcon ball escapement.");
+      } else {
+        alert(`The water clock timing is inaccurate! You need exactly 60 seconds for a full minute strike. Current interval: ${val}s.`);
+      }
+    }
+
+    // 4. JABIR'S ALEMBIC (Chamber 10)
+    function updateAlembicTemp(val) {
+      val = parseInt(val, 10);
+      document.getElementById('alembic-slider-val').innerText = `${val}°C`;
+      document.getElementById('alembic-temp-display').innerText = `${val}°C`;
+      const tag = document.getElementById('alembic-status-tag');
+
+      if (val === 78) {
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-emerald-950 border border-emerald-500 text-emerald-300 animate-pulse";
+        tag.innerText = "BOILING POINT MATCHED (78°C)";
+      } else if (val < 78) {
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-blue-950 border border-blue-500 text-blue-300";
+        tag.innerText = `TOO COLD (${val}°C)`;
+      } else {
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-red-950 border border-red-500 text-red-400";
+        tag.innerText = `OVERHEATED (${val}°C)`;
+      }
+    }
+
+    function verifyAlembicDistillation() {
+      const val = parseInt(document.getElementById('alembic-slider').value, 10);
+      if (val === 78) {
+        onBossRiddleVictory('alembic', "Distillation Perfected! Pure vapors condense along the cooling beak of the alembic into the receiver flask.");
+      } else {
+        alert(`The temperature must be calibrated to the exact boiling point of 78°C. Current temperature: ${val}°C.`);
+      }
+    }
+
+    // 5. CANON OF MEDICINE (Chamber 11)
+    function verifyCanonMedicine() {
+      const opt = document.querySelector('input[name="canon-opt"]:checked');
+      if (!opt) {
+        alert("Please select a medical decree protocol.");
+        return;
+      }
+      if (opt.value === 'correct') {
+        onBossRiddleVictory('canon', "Al-Arba'iniya Implemented! The 40-day quarantine and antiseptic protocol halts the epidemic spread in Rayy.");
+      } else {
+        alert("That protocol caused further contagion! Recall Ibn Sina's method of 'Al-Arba'iniya' (the fortieth isolation protocol).");
+      }
+    }
+
+    // 6. AL-KHWARIZMI'S ALGEBRA (Chamber 12)
+    function selectAlgebraAns(val) {
+      state.algebraAnswer = val;
+      [2, 3, 5, 8].forEach(n => {
+        const btn = document.getElementById(`alg-btn-${n}`);
+        if (n === val) {
+          btn.className = "px-4 py-1.5 rounded bg-amber-500 text-slate-950 font-mono font-bold text-xs";
+        } else {
+          btn.className = "px-4 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs font-mono text-slate-200";
+        }
+      });
+    }
+
+    function verifyAlgebraEquation() {
+      if (state.algebraAnswer === 3) {
+        onBossRiddleVictory('algebra', "Al-Jabr Verified! x = 3 satisfies 3² + 10(3) = 9 + 30 = 39. The mathematical scroll is sealed.");
+      } else {
+        alert("Incorrect root! Remember: (x + 5)² = 64, therefore x + 5 = 8, which means x = 8 - 5 = 3.");
+      }
+    }
+
+    // 7. SEAL OF AL-AMANAH & TAWHID (Chamber 15)
+    function updateAmanahHarmonization(val) {
+      val = parseInt(val, 10);
+      document.getElementById('amanah-slider-val').innerText = `${val}%`;
+      const tag = document.getElementById('amanah-status-tag');
+      const ringGlow = document.getElementById('amanah-ring-glow');
+
+      if (val === 100) {
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-emerald-950 border border-emerald-500 text-emerald-300 animate-pulse";
+        tag.innerText = "DIVINE HARMONY (100%)";
+        if (ringGlow) ringGlow.style.opacity = "1";
+      } else {
+        tag.className = "px-2 py-0.5 rounded font-mono text-[9px] font-bold bg-amber-950 border border-amber-500 text-amber-300";
+        tag.innerText = `INTEGRATING (${val}%)`;
+        if (ringGlow) ringGlow.style.opacity = "0";
+      }
+    }
+
+    function verifyAmanahSeal() {
+      const val = parseInt(document.getElementById('amanah-slider').value, 10);
+      if (val === 100) {
+        onBossRiddleVictory('amanah', "Tawhidic Mastery Achieved! The spiritual servant ('Abd) and custodial steward (Khalifah) are united in perfect cosmic balance (Mizan).");
+      } else {
+        alert("The triad of virtues is not yet fully aligned! Slide the Tawhidic harmonization to 100%.");
+      }
+    }
+
+    // GENERAL BOSS VICTORY HANDLER
+    function onBossRiddleVictory(relicKey, message) {
+      state.xp += 300;
+      unlockArtifact(relicKey);
+      updateStatsUI();
+
+      const box = document.getElementById('boss-feedback-box');
+      box.classList.remove('hidden');
+      box.innerHTML = `
+        <strong class="text-emerald-300 text-sm block mb-1">Trial Mastered!</strong>
+        ${message}<br>
+        <span class="text-amber-300 font-bold mt-1 inline-block">+300 XP Earned! Relic Certificate Badge unlocked.</span>
+      `;
+
+      // Show Big Proceed Button on Boss Screen
+      const proceedContainer = document.getElementById('boss-proceed-container');
+      const proceedText = document.getElementById('boss-proceed-text');
+      if (proceedContainer) {
+        proceedContainer.classList.remove('hidden');
+        if (state.currentProgressStep <= 15) {
+          proceedText.innerText = `Proceed to Chamber ${state.currentProgressStep}`;
+        } else {
+          proceedText.innerText = "All Chambers Conquered! Proceed to Survey";
+        }
+      }
+
+      setTimeout(() => {
+        displayRelicBadgeModal(relicKey);
+      }, 1000);
+    }
+
+    // HANDLER FOR THE BIG NEXT BUTTON AFTER BOSS
+    function proceedToNextChamberAfterBoss() {
+      closeRelicBadgeModal();
+      
+      const proceedContainer = document.getElementById('boss-proceed-container');
+      if (proceedContainer) proceedContainer.classList.add('hidden');
+
+      if (state.currentProgressStep > 15) {
+        alert("Subhanallah! You have completed all 15 Chambers of the House of Wisdom. Please complete the final research survey to log your scholarly credentials.");
+        openResearchSurveyModal();
+      } else {
+        // Automatically switch view back to rooms and highlight the next chamber
+        switchScreen('rooms');
+      }
+    }
+
+    // ==========================================
+    // RELIC BADGE & DOWNLOAD SYSTEM
+    // ==========================================
+    function viewUnlockedRelic(relicKey) {
+      if (!state.unlockedArtifacts.has(relicKey)) {
+        const relic = RELIC_DETAILS[relicKey];
+        alert(`This relic is locked. Complete Chamber ${relic.chamberReq} to forge this sacred artifact!`);
+        return;
+      }
+      displayRelicBadgeModal(relicKey);
+    }
+
+    function displayRelicBadgeModal(relicKey) {
+      const relic = RELIC_DETAILS[relicKey];
+      if (!relic) return;
+
+      state.currentViewingRelic = relic;
+
+      document.getElementById('badge-relic-name').innerText = relic.name;
+      document.getElementById('badge-relic-arabic').innerText = relic.arabic;
+      document.getElementById('badge-relic-lore').innerText = relic.lore;
+      document.getElementById('badge-student-name').innerText = state.username || "Scholar of Baghdad";
+      document.getElementById('badge-student-meta').innerText = `${state.studentClass || "USIM"} • Matric: ${state.matricNumber || "1220491"}`;
+      
+      const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+      document.getElementById('badge-date-issued').innerText = `Certified on: ${today}`;
+
+      // Update Icon
+      const iconContainer = document.getElementById('badge-icon');
+      iconContainer.setAttribute('data-lucide', relic.icon);
+
+      document.getElementById('relic-badge-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeRelicBadgeModal() {
+      document.getElementById('relic-badge-modal').classList.add('hidden');
+    }
+
+    function downloadRelicBadgePNG() {
+      const relic = state.currentViewingRelic || RELIC_DETAILS['astrolabe'];
+      const canvas = document.getElementById('badge-export-canvas');
+      const ctx = canvas.getContext('2d');
+
+      const width = canvas.width;
+      const height = canvas.height;
+
+      // 1. Background Gradient
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, '#090d16');
+      grad.addColorStop(0.5, '#0f172a');
+      grad.addColorStop(1, '#020617');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // 2. Ornamental Golden Border
+      ctx.strokeStyle = '#d97706';
+      ctx.lineWidth = 10;
+      ctx.strokeRect(20, 20, width - 40, height - 40);
+
+      ctx.strokeStyle = '#fef08a';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(30, 30, width - 60, height - 60);
+
+      // Corner flourishes
+      ctx.fillStyle = '#f59e0b';
+      const corners = [[30,30], [width-30,30], [30,height-30], [width-30,height-30]];
+      corners.forEach(([cx, cy]) => {
+        ctx.beginPath();
+        ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // 3. Institution Title Header
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = 'bold 16px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('UNIVERSITI SAINS ISLAM MALAYSIA (USIM)', width / 2, 65);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '13px Inter, sans-serif';
+      ctx.fillText('ISLAMIC SCIENCE INSTITUTE • ISI 1012', width / 2, 88);
+
+      // 4. Central Medallion Circle
+      ctx.save();
+      const circleGrad = ctx.createRadialGradient(width/2, 210, 10, width/2, 210, 80);
+      circleGrad.addColorStop(0, '#fef08a');
+      circleGrad.addColorStop(0.4, '#d97706');
+      circleGrad.addColorStop(1, '#78350f');
+      ctx.fillStyle = circleGrad;
+      ctx.beginPath();
+      ctx.arc(width / 2, 210, 75, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#fef08a';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+      ctx.restore();
+
+      // Relic Arabic & English text
+      ctx.fillStyle = '#1e1b4b';
+      ctx.font = 'bold 24px Amiri, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(relic.arabic, width / 2, 218);
+
+      // 5. Relic Name
+      ctx.fillStyle = '#fef3c7';
+      ctx.font = 'bold 28px Cinzel, serif';
+      ctx.fillText(relic.name.toUpperCase(), width / 2, 335);
+
+      ctx.fillStyle = '#f59e0b';
+      ctx.font = '14px Inter, sans-serif';
+      ctx.fillText('SACRED RELIC OF THE HOUSE OF WISDOM', width / 2, 365);
+
+      // 6. Award Divider Line
+      ctx.strokeStyle = '#d97706';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(80, 390);
+      ctx.lineTo(width - 80, 390);
+      ctx.stroke();
+
+      // 7. Student Credentials
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '13px Inter, sans-serif';
+      ctx.fillText('OFFICIALLY CERTIFIED TO SCHOLAR', width / 2, 420);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 26px Inter, sans-serif';
+      ctx.fillText(state.username || 'Ahmad bin Abdullah', width / 2, 455);
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = 'bold 15px monospace';
+      ctx.fillText(`CLASS: ${state.studentClass || 'KMB12'}  |  MATRIC: ${state.matricNumber || '1220491'}`, width / 2, 485);
+
+      // 8. Relic Lore Description (Word Wrapped)
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = 'italic 14px Inter, sans-serif';
+      ctx.fillText(`"${relic.lore}"`, width / 2, 530);
+
+      // 9. Seal Stamp & Timestamp
+      const dateStr = new Date().toISOString().split('T')[0];
+      ctx.fillStyle = '#64748b';
+      ctx.font = '12px monospace';
+      ctx.fillText(`VERIFIED IN ACADEMIC CODEX • ${dateStr}`, width / 2, 630);
+
+      ctx.fillStyle = '#f59e0b';
+      ctx.font = 'bold 13px Cinzel, serif';
+      ctx.fillText('بَيْتُ الْحِكْمَةِ • BAGHDAD SCRIPTORIUM', width / 2, 660);
+
+      // Export canvas to downloadable link
+      const link = document.createElement('a');
+      link.download = `${relic.id}_badge_${(state.matricNumber || 'scholar').replace(/[^a-zA-Z0-9]/g, '_')}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    function updateStatsUI() {
+      document.getElementById('hud-score-xp').innerText = `${state.xp} XP`;
+      document.getElementById('stat-rooms-count').innerText = `${state.solvedRooms.size} / 15`;
+      document.getElementById('stat-score-count').innerText = state.gradedCorrect;
+      
+      const rate = state.gradedAttempted > 0 
+        ? Math.round((state.gradedCorrect / state.gradedAttempted) * 100) 
+        : 0;
+      document.getElementById('stat-accuracy-rate').innerText = `${rate}%`;
+
+      const pct = Math.min(100, Math.round((state.solvedRooms.size / 15) * 100));
+      document.getElementById('hud-progress-bar').style.width = `${pct}%`;
+
+      // Update and toggle Finish & Survey button lock status
+      updateFinishSurveyButtonState();
+    }
+
+    function updateFinishSurveyButtonState() {
+      const btn = document.getElementById('header-finish-survey-btn');
+      const text = document.getElementById('header-finish-survey-text');
+      const icon = document.getElementById('header-finish-survey-icon');
+      if (!btn || !text || !icon) return;
+
+      const allRoomsDone = state.solvedRooms.size >= 15;
+      const allRelicsDone = state.unlockedArtifacts.size >= 7;
+
+      if (allRoomsDone && allRelicsDone) {
+        // Fully unlocked state
+        btn.disabled = false;
+        btn.className = "bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-500 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-xs px-3.5 py-1.5 rounded-lg border-2 border-emerald-200 shadow-xl shadow-emerald-950/60 flex items-center gap-1.5 transition transform hover:scale-105 active:scale-95 animate-pulse cursor-pointer";
+        text.innerText = "Finish & Survey";
+        icon.setAttribute('data-lucide', 'check-circle-2');
+        icon.className = "w-4 h-4 text-slate-950";
+        btn.title = "All trials conquered! Click to complete your evaluation and survey.";
+      } else {
+        // Locked / In-Progress state
+        btn.disabled = true;
+        btn.className = "bg-slate-900 border border-slate-700 text-slate-500 font-bold text-xs px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 cursor-not-allowed opacity-60 transition";
+        if (allRoomsDone && !allRelicsDone) {
+          text.innerText = `Forge Relics (${state.unlockedArtifacts.size}/7)`;
+          btn.title = `Chambers complete! You still need to forge ${7 - state.unlockedArtifacts.size} more sacred relics.`;
+        } else {
+          text.innerText = `Locked (${state.solvedRooms.size}/15)`;
+          btn.title = `Complete all 15 chambers (currently ${state.solvedRooms.size}/15) and forge all 7 relics to unlock submission.`;
+        }
+        icon.setAttribute('data-lucide', 'lock');
+        icon.className = "w-4 h-4 text-slate-500";
+      }
+      lucide.createIcons();
+    }
+
+    // ==========================================
+    // SURVEY & GOOGLE SHEETS POST
+    // ==========================================
+    function openResearchSurveyModal() {
+      // Guardrail: Ensure all 15 chambers and all 7 relics are completed
+      if (state.solvedRooms.size < 15 || state.unlockedArtifacts.size < 7) {
+        alert(`Academic Submission Locked:\nYou must conquer all 15 chambers and forge all 7 sacred relics before submitting.\n\nCurrent Progress:\n• Chambers Mastered: ${state.solvedRooms.size} / 15\n• Relics Forged: ${state.unlockedArtifacts.size} / 7`);
+        return;
+      }
+
+      document.getElementById('survey-summary-name').innerText = state.username || "Guest Scholar";
+      document.getElementById('survey-summary-class').innerText = `${state.studentClass || "N/A"} • ${state.matricNumber || "No ID"}`;
+      document.getElementById('survey-summary-score').innerText = `${state.gradedCorrect} / ${state.gradedAttempted}`;
+      
+      const pct = state.gradedAttempted > 0 ? Math.round((state.gradedCorrect / state.gradedAttempted) * 100) : 0;
+      document.getElementById('survey-summary-accuracy').innerText = `${pct}%`;
+
+      document.getElementById('survey-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeResearchSurveyModal() {
+      document.getElementById('survey-modal').classList.add('hidden');
+    }
+
+    function getRadioValue(name) {
+      const checked = document.querySelector(`input[name="${name}"]:checked`);
+      return checked ? checked.value : "5";
+    }
+
+    async function submitFinalResearchData() {
+      const endpoint = state.scriptUrl || DEFAULT_APPS_SCRIPT_URL;
+      const statusEl = document.getElementById('survey-submission-status');
+      const submitBtn = document.getElementById('survey-submit-btn');
+
+      if (!endpoint) {
+        alert("Google Apps Script URL is missing. Please configure it in Settings.");
+        return;
+      }
+
+      statusEl.innerText = "Transmitting results to Google Sheets...";
+      submitBtn.disabled = true;
+
+      const pct = state.gradedAttempted > 0 ? `${Math.round((state.gradedCorrect / state.gradedAttempted) * 100)}%` : "0%";
+
+      const payload = {
+        timestamp: new Date().toISOString(),
+        username: state.username || "Anonymous Scholar",
+        studentClass: state.studentClass || "Unassigned",
+        matric: state.matricNumber || "N/A",
+        score: state.gradedCorrect,
+        total: state.gradedAttempted,
+        percentage: pct,
+        roomsMastered: state.solvedRooms.size,
+        unlockedArtifacts: Array.from(state.unlockedArtifacts).join(", ") || "None",
+        survey_learning_gain: getRadioValue('survey-gain'),
+        survey_epistemic_clarity: getRadioValue('survey-clarity'),
+        survey_gamification_satisfaction: getRadioValue('survey-gamify'),
+        survey_overall_recommendation: getRadioValue('survey-recommend'),
+        survey_qualitative_feedback: document.getElementById('survey-feedback').value.trim() || "No qualitative comment provided"
+      };
+
+      try {
+        await fetch(endpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        statusEl.className = "text-[11px] text-emerald-400 font-bold";
+        statusEl.innerText = "Submission successfully registered in Course Database!";
+        submitBtn.innerHTML = `<span>Submitted Successfully</span><i data-lucide="check" class="w-3.5 h-3.5"></i>`;
+        lucide.createIcons();
+
+        setTimeout(() => {
+          closeResearchSurveyModal();
+          openAchievementsModal();
+        }, 1200);
+      } catch (err) {
+        statusEl.className = "text-[11px] text-red-400";
+        statusEl.innerText = "Network notice: Attempt logged. Ensure Google Apps Script deployment is set to 'Anyone'.";
+        submitBtn.disabled = false;
+      }
+    }
+
+    // ==========================================
+    // ACHIEVEMENTS & PORTFOLIO SHOWCASE LOGIC
+    // ==========================================
+    function openAchievementsModal() {
+      // 1. Fill Scholar Details
+      document.getElementById('achieve-scholar-name').innerText = state.username || "Scholar of Baghdad";
+      document.getElementById('achieve-scholar-meta').innerText = `Class: ${state.studentClass || "USIM"} • Matric: ${state.matricNumber || "1220491"}`;
+      document.getElementById('achieve-score-stat').innerText = `${state.gradedCorrect} / ${state.gradedAttempted}`;
+      
+      const pct = state.gradedAttempted > 0 ? Math.round((state.gradedCorrect / state.gradedAttempted) * 100) : 0;
+      document.getElementById('achieve-accuracy-stat').innerText = `${pct}%`;
+      document.getElementById('achieve-xp-stat').innerText = `${state.xp} XP`;
+      document.getElementById('achieve-relic-count').innerText = `${state.unlockedArtifacts.size} of 7 Unlocked`;
+
+      // 2. Render All 7 Badges inside Grid
+      const container = document.getElementById('achieve-badges-grid');
+      container.innerHTML = "";
+
+      Object.keys(RELIC_DETAILS).forEach(key => {
+        const relic = RELIC_DETAILS[key];
+        const isUnlocked = state.unlockedArtifacts.has(key);
+
+        const card = document.createElement('div');
+        if (isUnlocked) {
+          card.className = "p-3 rounded-xl border border-amber-500/60 bg-gradient-to-b from-slate-900 to-amber-950/20 flex flex-col items-center text-center cursor-pointer hover:border-amber-400 shadow-md transition group";
+          card.onclick = () => {
+            closeAchievementsModal();
+            displayRelicBadgeModal(key);
+          };
+          card.innerHTML = `
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 via-amber-600 to-yellow-700 flex items-center justify-center border-2 border-amber-200 shadow-lg shadow-amber-500/30 mb-2 group-hover:scale-105 transition">
+              <i data-lucide="${relic.icon}" class="w-6 h-6 text-slate-950"></i>
+            </div>
+            <h5 class="text-xs font-bold text-amber-200 leading-tight">${relic.name}</h5>
+            <span class="arabic-title text-[10px] text-amber-400/90">${relic.arabic}</span>
+            <span class="mt-2 text-[9px] font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-full flex items-center gap-1">
+              <i data-lucide="check" class="w-2.5 h-2.5"></i> Earned
+            </span>
+          `;
+        } else {
+          card.className = "p-3 rounded-xl border border-slate-800 bg-slate-950/60 flex flex-col items-center text-center opacity-40 cursor-not-allowed";
+          card.innerHTML = `
+            <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center mb-2">
+              <i data-lucide="lock" class="w-5 h-5 text-slate-600"></i>
+            </div>
+            <h5 class="text-xs font-bold text-slate-500 leading-tight">${relic.name}</h5>
+            <span class="arabic-title text-[10px] text-slate-600">${relic.arabic}</span>
+            <span class="mt-2 text-[9px] font-bold text-slate-500 bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-full">
+              Chamber ${relic.chamberReq}
+            </span>
+          `;
+        }
+        container.appendChild(card);
+      });
+
+      document.getElementById('achievements-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeAchievementsModal() {
+      document.getElementById('achievements-modal').classList.add('hidden');
+    }
+
+    // Generate Full Portfolio Certificate PNG
+    function downloadCompleteTranscriptPNG() {
+      const canvas = document.getElementById('transcript-export-canvas');
+      const ctx = canvas.getContext('2d');
+      const width = canvas.width;
+      const height = canvas.height;
+
+      // 1. Background
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, '#090d16');
+      grad.addColorStop(0.5, '#0f172a');
+      grad.addColorStop(1, '#020617');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // 2. Dual Ornamental Borders
+      ctx.strokeStyle = '#d97706';
+      ctx.lineWidth = 12;
+      ctx.strokeRect(20, 20, width - 40, height - 40);
+
+      ctx.strokeStyle = '#fef08a';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(32, 32, width - 64, height - 64);
+
+      // Corner rosettes
+      ctx.fillStyle = '#f59e0b';
+      [[32,32], [width-32,32], [32,height-32], [width-32,height-32]].forEach(([cx, cy]) => {
+        ctx.beginPath();
+        ctx.arc(cx, cy, 7, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // 3. Institution Headers
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = 'bold 18px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('UNIVERSITI SAINS ISLAM MALAYSIA (USIM)', width / 2, 70);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '13px Inter, sans-serif';
+      ctx.fillText('ISLAMIC SCIENCE INSTITUTE • COURSE CODE: ISI 1012', width / 2, 95);
+
+      ctx.fillStyle = '#fef3c7';
+      ctx.font = 'bold 28px Cinzel, serif';
+      ctx.fillText('SCHOLARLY PORTFOLIO OF EXCELLENCE', width / 2, 140);
+
+      ctx.fillStyle = '#d97706';
+      ctx.font = 'bold 20px Amiri, serif';
+      ctx.fillText('بَيْتُ الْحِكْمَةِ • سِجِلُّ الإِنْجَازَاتِ الأَكَادِيمِيَّةِ', width / 2, 170);
+
+      // 4. Scholar Details Box
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.8)';
+      ctx.fillRect(60, 195, width - 120, 110);
+      ctx.strokeStyle = '#d97706';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(60, 195, width - 120, 110);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '12px Inter, sans-serif';
+      ctx.fillText('THIS ACADEMIC TRANSCRIPT IS AWARDED TO', width / 2, 220);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 26px Inter, sans-serif';
+      ctx.fillText(state.username || 'Scholar of Baghdad', width / 2, 255);
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = 'bold 15px monospace';
+      ctx.fillText(`CLASS: ${state.studentClass || 'USIM'}  |  MATRIC: ${state.matricNumber || '1220491'}`, width / 2, 285);
+
+      // 5. Performance Metrics Line
+      const pct = state.gradedAttempted > 0 ? Math.round((state.gradedCorrect / state.gradedAttempted) * 100) : 0;
+      ctx.fillStyle = '#fef3c7';
+      ctx.font = 'bold 15px Inter, sans-serif';
+      ctx.fillText(`Final Score: ${state.gradedCorrect}/${state.gradedAttempted}  •  Accuracy: ${pct}%  •  Mastered Chambers: ${state.solvedRooms.size}/15  •  Accumulated: ${state.xp} XP`, width / 2, 345);
+
+      // 6. Earned Relics Grid on Canvas
+      ctx.fillStyle = '#d97706';
+      ctx.font = 'bold 14px Cinzel, serif';
+      ctx.fillText('SACRED RELICS & BADGES MASTERED IN BAGHDAD', width / 2, 395);
+
+      const relicKeys = Object.keys(RELIC_DETAILS);
+      const cols = 2;
+      const startX = 80;
+      const startY = 425;
+      const colWidth = 310;
+      const rowHeight = 65;
+
+      relicKeys.forEach((key, idx) => {
+        const relic = RELIC_DETAILS[key];
+        const isUnlocked = state.unlockedArtifacts.has(key);
+        const col = idx % cols;
+        const row = Math.floor(idx / cols);
+
+        const x = startX + col * colWidth;
+        const y = startY + row * rowHeight;
+
+        // Badge entry box
+        ctx.fillStyle = isUnlocked ? 'rgba(30, 41, 59, 0.7)' : 'rgba(15, 23, 42, 0.4)';
+        ctx.fillRect(x, y, colWidth - 20, 52);
+        ctx.strokeStyle = isUnlocked ? '#f59e0b' : '#334155';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x, y, colWidth - 20, 52);
+
+        // Badge Status Dot
+        ctx.fillStyle = isUnlocked ? '#10b981' : '#64748b';
+        ctx.beginPath();
+        ctx.arc(x + 20, y + 26, 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Text
+        ctx.textAlign = 'left';
+        ctx.fillStyle = isUnlocked ? '#fef3c7' : '#64748b';
+        ctx.font = 'bold 13px Inter, sans-serif';
+        ctx.fillText(relic.name, x + 38, y + 22);
+
+        ctx.fillStyle = isUnlocked ? '#f59e0b' : '#475569';
+        ctx.font = '11px Amiri, serif';
+        ctx.fillText(isUnlocked ? `${relic.arabic} • [EARNED]` : `${relic.arabic} • [LOCKED]`, x + 38, y + 40);
+      });
+
+      // 7. Footer Seal & Date
+      ctx.textAlign = 'center';
+      const today = new Date().toISOString().split('T')[0];
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '12px monospace';
+      ctx.fillText(`VERIFIED IN USIM COURSE DATABASE • ISSUED: ${today}`, width / 2, 880);
+
+      ctx.fillStyle = '#f59e0b';
+      ctx.font = 'bold 14px Cinzel, serif';
+      ctx.fillText('BAGHDAD SCRIPTORIUM • THE HOUSE OF WISDOM ADVENTURE', width / 2, 910);
+
+      // Download Trigger
+      const link = document.createElement('a');
+      link.download = `scholarly_portfolio_${(state.matricNumber || 'scholar').replace(/[^a-zA-Z0-9]/g, '_')}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    // ==========================================
+    // INSTRUCTOR CONFIGURATION
+    // ==========================================
+    // GUIDEBOOK MODAL LOGIC
+    // ==========================================
+    function openGuidebookModal() {
+      document.getElementById('guidebook-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeGuidebookModal() {
+      document.getElementById('guidebook-modal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
