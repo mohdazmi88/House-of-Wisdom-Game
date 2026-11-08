@@ -3113,62 +3113,68 @@
       return checked ? checked.value : "5";
     }
 
-    async function submitFinalResearchData() {
-      const endpoint = state.scriptUrl || DEFAULT_APPS_SCRIPT_URL;
-      const statusEl = document.getElementById('survey-submission-status');
-      const submitBtn = document.getElementById('survey-submit-btn');
-
-      if (!endpoint) {
-        alert("Google Apps Script URL is missing. Please configure it in Settings.");
-        return;
-      }
-
-      statusEl.innerText = "Transmitting results to Google Sheets...";
-      submitBtn.disabled = true;
-
-      const pct = state.gradedAttempted > 0 ? `${Math.round((state.gradedCorrect / state.gradedAttempted) * 100)}%` : "0%";
-
-      const payload = {
-        timestamp: new Date().toISOString(),
-        username: state.username || "Anonymous Scholar",
-        studentClass: state.studentClass || "Unassigned",
-        matric: state.matricNumber || "N/A",
-        score: state.gradedCorrect,
-        total: state.gradedAttempted,
-        percentage: pct,
-        roomsMastered: state.solvedRooms.size,
-        unlockedArtifacts: Array.from(state.unlockedArtifacts).join(", ") || "None",
-        survey_cognitive_gain: getRadioValue('survey-gain'),
-        survey_epistemic_shift: getRadioValue('survey-clarity'),
-        survey_intrinsic_motivation: getRadioValue('survey-gamify'),
-        survey_system_usability: getRadioValue('survey-recommend'),
-        survey_qualitative_thematic: document.getElementById('survey-feedback').value.trim() || "No qualitative insight provided"
-      };
-
-      try {
-        await fetch(endpoint, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        statusEl.className = "text-[11px] text-emerald-400 font-bold";
-        statusEl.innerText = "Submission successfully registered in Course Database!";
-        submitBtn.innerHTML = `<span>Submitted Successfully</span><i data-lucide="check" class="w-3.5 h-3.5"></i>`;
-        lucide.createIcons();
-
-        setTimeout(() => {
-          closeResearchSurveyModal();
-          openAchievementsModal();
-        }, 1200);
-      } catch (err) {
-        statusEl.className = "text-[11px] text-red-400";
-        statusEl.innerText = "Network notice: Attempt logged. Ensure Google Apps Script deployment is set to 'Anyone'.";
-        submitBtn.disabled = false;
-      }
-    }
-
+	async function submitFinalResearchData() {
+	  const endpoint = state.scriptUrl || DEFAULT_APPS_SCRIPT_URL;
+	  const statusEl = document.getElementById('survey-submission-status');
+	  const submitBtn = document.getElementById('survey-submit-btn');
+	
+	  if (!endpoint) {
+	    alert("Google Apps Script URL is missing. Please configure it in Settings.");
+	    return;
+	  }
+	
+	  statusEl.innerText = "Transmitting results to Google Sheets...";
+	  submitBtn.disabled = true;
+	
+	  const pct = state.gradedAttempted > 0 
+	    ? `${Math.round((state.gradedCorrect / state.gradedAttempted) * 100)}%` 
+	    : "0%";
+	
+	  const payload = {
+	    timestamp: new Date().toISOString(),
+	    username: state.username || "Anonymous Scholar",
+	    studentClass: state.studentClass || "Unassigned",
+	    matric: state.matricNumber || "N/A",
+	    score: state.gradedCorrect,
+	    total: state.gradedAttempted,
+	    percentage: pct,
+	    roomsMastered: state.solvedRooms.size,
+	    unlockedArtifacts: Array.from(state.unlockedArtifacts).join(", ") || "None",
+	    survey_cognitive_gain: getRadioValue('survey-gain'),
+	    survey_epistemic_shift: getRadioValue('survey-clarity'),
+	    survey_intrinsic_motivation: getRadioValue('survey-gamify'),
+	    survey_system_usability: getRadioValue('survey-recommend'),
+	    survey_qualitative_thematic: document.getElementById('survey-feedback').value.trim() || "No qualitative insight provided"
+	  };
+	
+	  try {
+	    // Sending as text/plain bypasses the CORS OPTIONS preflight check
+	    await fetch(endpoint, {
+	      method: 'POST',
+	      mode: 'no-cors',
+	      headers: { 
+	        'Content-Type': 'text/plain;charset=utf-8' 
+	      },
+	      body: JSON.stringify(payload)
+	    });
+	
+	    statusEl.className = "text-[11px] text-emerald-400 font-bold";
+	    statusEl.innerText = "Submission successfully registered in Course Database!";
+	    submitBtn.innerHTML = `<span>Submitted Successfully</span><i data-lucide="check" class="w-3.5 h-3.5"></i>`;
+	    lucide.createIcons();
+	
+	    setTimeout(() => {
+	      closeResearchSurveyModal();
+	      openAchievementsModal();
+	    }, 1200);
+	
+	  } catch (err) {
+	    console.error("Transmission error:", err);
+	    statusEl.className = "text-[11px] text-red-400";
+	    statusEl.innerText = "Network error while saving. Please verify internet connection.";
+	    submitBtn.disabled = false;
+	  }
+	}
     // ==========================================
     // ACHIEVEMENTS & PORTFOLIO SHOWCASE LOGIC
     // ==========================================
